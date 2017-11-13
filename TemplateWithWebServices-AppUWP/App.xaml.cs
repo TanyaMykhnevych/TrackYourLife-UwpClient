@@ -4,7 +4,10 @@ using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using Autofac;
+using UwpClientApp.Infrastructure;
 using UwpClientApp.Presentation.Views;
+using UwpClientApp.Presentation.Views.MenuPage;
 
 namespace UwpClientApp
 {
@@ -13,6 +16,13 @@ namespace UwpClientApp
     /// </summary>
     sealed partial class App : Application
     {
+        static App()
+        {
+            var builder = new ContainerBuilder();
+            AutofacRegistrator.RegisterTypes(builder);
+            Container = builder.Build();
+        }
+
         /// <summary>
         /// Инициализирует одноэлементный объект приложения.  Это первая выполняемая строка разрабатываемого
         /// кода; поэтому она является логическим эквивалентом main() или WinMain().
@@ -22,6 +32,8 @@ namespace UwpClientApp
             this.InitializeComponent();
             this.Suspending += OnSuspending;
         }
+
+        public static IContainer Container { get; }
 
         /// <summary>
         /// Вызывается при обычном запуске приложения пользователем.  Будут использоваться другие точки входа,

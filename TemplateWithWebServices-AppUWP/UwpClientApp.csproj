@@ -104,12 +104,12 @@
     <Compile Include="Data\Api\Rest\RequestInterceptorBase.cs" />
     <Compile Include="Data\Api\Rest\RestApiBase.cs" />
     <Compile Include="Data\Api\Rest\UrlRequestBuilder.cs" />
-    <Compile Include="Data\DataSources\Concrete\DataSource.cs" />
-    <Compile Include="Data\DataSources\IDataSource.cs" />
+    <Compile Include="Infrastructure\AutofacRegistrator.cs" />
     <Compile Include="Presentation\Models\FlickrPhoto.cs" />
     <Compile Include="Presentation\ViewModels\AppViewModelExample.cs" />
     <Compile Include="Presentation\ViewModels\MenuContentViewModel.cs" />
-    <Compile Include="Presentation\Views\MenuContentPage.xaml.cs">
+    <Compile Include="Presentation\ViewModels\ViewModelBase.cs" />
+    <Compile Include="Presentation\Views\MenuPage\MenuContentPage.xaml.cs">
       <DependentUpon>MenuContentPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -135,12 +135,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Presentation\Views\MenuContentPage.xaml">
+    <Page Include="Presentation\Views\MenuPage\MenuContentPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Autofac">
+      <Version>4.6.2</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.0.1</Version>
     </PackageReference>
