@@ -47,22 +47,22 @@ namespace UwpClientApp.Presentation.ViewModels
             MenuItems.Add(new MenuItemViewModel()
             {
                 DisplayName = "Login",
-                Icon = "\xE825"
+                Icon = "\xEE57"
             });
             MenuItems.Add(new MenuItemViewModel()
             {
                 DisplayName = "Profile",
-                Icon = "\xE1D6"
+                Icon = "\xE779"
             });
             MenuItems.Add(new MenuItemViewModel()
             {
                 DisplayName = "Donor Requests",
-                Icon = "\xE10F"
+                Icon = "\xEE92"
             });
             MenuItems.Add(new MenuItemViewModel()
             {
                 DisplayName = "Patient Requests",
-                Icon = "\xE1D6"
+                Icon = "\xE716"
             });
         }
 
