@@ -18,17 +18,22 @@
                         Width="50" Height="50" Background="Transparent"/>
 
                 <StackPanel Orientation="Horizontal">
-                    <Button x:Name="MenuButton1" FontFamily="Segoe MDL2 Assets" Content="&#xE825;"
+                    <Button x:Name="MenuButton1" FontFamily="Segoe MDL2 Assets" Content="&#xE10F;"
                             Width="50" Height="50" Background="Transparent"/>
                     <TextBlock Text="Button 1" FontSize="18" VerticalAlignment="Center" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Button x:Name="MenuButton2" FontFamily="Segoe MDL2 Assets" Content="&#xE10F;"
+                    <Button x:Name="MenuButton2" FontFamily="Segoe MDL2 Assets" Content="&#xE709;"
                             Width="50" Height="50" Background="Transparent"/>
                     <TextBlock Text="Button 2" FontSize="18" VerticalAlignment="Center" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Button x:Name="MenuButton3" FontFamily="Segoe MDL2 Assets" Content="&#xE1D6;"
+                    <Button x:Name="MenuButton3" FontFamily="Segoe MDL2 Assets" Content="&#xE716;"
+                            Width="50" Height="50" Background="Transparent"/>
+                    <TextBlock Text="Button 3" FontSize="18" VerticalAlignment="Center" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="MenuButton4" FontFamily="Segoe MDL2 Assets" Content="&#xE779;"
                             Width="50" Height="50" Background="Transparent"/>
                     <TextBlock Text="Button 3" FontSize="18" VerticalAlignment="Center" />
                 </StackPanel>
