@@ -27,6 +27,8 @@ namespace UwpClientApp.Presentation.Views.MenuPage
 
             d(this.OneWayBind(ViewModel, vm => vm.MenuItems, v => v.MenuItemsItemsControl.ItemsSource));
             d(this.Bind(ViewModel, vm => vm.SelectedMenuItem, v => v.MenuItemsItemsControl.SelectedItem));
+
+            d(this.Bind(ViewModel, vm => vm.CurrentPage, v => v.AppMenuInternalFrame.SourcePageType));
         }
 
         object IViewFor.ViewModel

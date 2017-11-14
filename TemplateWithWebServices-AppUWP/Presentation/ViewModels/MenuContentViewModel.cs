@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Linq;
 using ReactiveUI;
+using UwpClientApp.Presentation.Views.MenuPage.MainPage;
+using UwpClientApp.Presentation.Views.MenuPage.Test1Page;
+using UwpClientApp.Presentation.Views.MenuPage.Test2Page;
 
 namespace UwpClientApp.Presentation.ViewModels
 {
@@ -8,6 +11,7 @@ namespace UwpClientApp.Presentation.ViewModels
     {
         private bool _isPaneOpened;
         private MenuItemViewModel _selectedMenuItem;
+        private Type _currentPage;
 
         public MenuContentViewModel()
         {
@@ -21,6 +25,12 @@ namespace UwpClientApp.Presentation.ViewModels
         }
 
         public ReactiveList<MenuItemViewModel> MenuItems { get; set; } = new ReactiveList<MenuItemViewModel>();
+
+        public Type CurrentPage
+        {
+            get => _currentPage;
+            set => this.RaiseAndSetIfChanged(ref _currentPage, value);
+        }
 
         public MenuItemViewModel SelectedMenuItem
         {
@@ -39,30 +49,35 @@ namespace UwpClientApp.Presentation.ViewModels
 
         public void OnSelectedMenuItemChanged(MenuItemViewModel item)
         {
-            
+            CurrentPage = item.PageType;
+            IsPaneOpened = false;
         }
 
         private void FillMenuItems()
         {
             MenuItems.Add(new MenuItemViewModel()
             {
-                DisplayName = "Login",
-                Icon = "\xEE57"
+                DisplayName = "MainPage",
+                Icon = "\xEE57",
+                PageType = typeof(MainPage)
             });
             MenuItems.Add(new MenuItemViewModel()
             {
-                DisplayName = "Profile",
-                Icon = "\xE779"
+                DisplayName = "Test1Page",
+                Icon = "\xE779",
+                PageType = typeof(Test1Page)
             });
             MenuItems.Add(new MenuItemViewModel()
             {
-                DisplayName = "Donor Requests",
-                Icon = "\xEE92"
+                DisplayName = "Test2Page",
+                Icon = "\xEE92",
+                PageType = typeof(Test2Page)
             });
             MenuItems.Add(new MenuItemViewModel()
             {
-                DisplayName = "Patient Requests",
-                Icon = "\xE716"
+                DisplayName = "Test2Page",
+                Icon = "\xE716",
+                PageType = typeof(Test2Page)
             });
         }
 

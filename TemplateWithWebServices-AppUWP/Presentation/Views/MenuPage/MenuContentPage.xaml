@@ -45,9 +45,7 @@
             </SplitView.Pane>
 
             <SplitView.Content>
-                <Grid>
-                    
-                </Grid>
+                <Frame x:Name="AppMenuInternalFrame"></Frame>
             </SplitView.Content>
         </SplitView>
 
