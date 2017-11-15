@@ -1,0 +1,40 @@
+﻿<Page
+    x:Class="UwpClientApp.Presentation.Views.LoginPage.LoginPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UwpClientApp.Presentation.Views.LoginPage"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel x:Name="LoginStackPanel" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Padding="150,50,150,50">
+            <TextBox x:Name="EmailTextBox"  
+                     Header="Email" 
+                     PlaceholderText="Enter your email"/>
+
+            <PasswordBox x:Name="PasswordBox"  
+                         Header="Password" 
+                         PlaceholderText="Enter your password"/>
+
+            <TextBlock>Remember me</TextBlock>
+            <CheckBox x:Name="RememberMeCheckBox" />
+
+            <Button x:Name="SignInButton">Sign In</Button>
+        </StackPanel>
+
+
+        <ProgressRing x:Name="PreloaderProgressRing"
+                      HorizontalContentAlignment="Stretch"
+                      VerticalContentAlignment="Stretch"
+                      HorizontalAlignment="Stretch"
+                      VerticalAlignment="Stretch"/>
+    </Grid>
+</Page>

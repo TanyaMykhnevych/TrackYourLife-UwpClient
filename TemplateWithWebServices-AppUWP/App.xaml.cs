@@ -5,8 +5,10 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using Autofac;
+using UwpClientApp.Business.Services;
 using UwpClientApp.Infrastructure;
 using UwpClientApp.Presentation.Views;
+using UwpClientApp.Presentation.Views.LoginPage;
 using UwpClientApp.Presentation.Views.MenuPage;
 
 namespace UwpClientApp
@@ -66,11 +68,12 @@ namespace UwpClientApp
             {
                 if (rootFrame.Content == null)
                 {
-                    // Если стек навигации не восстанавливается для перехода к первой странице,
-                    // настройка новой страницы путем передачи необходимой информации в качестве параметра
-                    // параметр
-                    rootFrame.Navigate(typeof(MenuContentPage), e.Arguments);
+                    var prefService = Container.Resolve<IPreferencesService>();
+                    bool isLogged = prefService.IsLoggedIn;
+                    Type initialPage = isLogged ? typeof(MenuContentPage) : typeof(LoginPage);
+                    rootFrame.Navigate(initialPage, e.Arguments);
                 }
+
                 // Обеспечение активности текущего окна
                 var titleTextBlock = new TextBlock {Text = "Track Your Life"};
                 Window.Current.SetTitleBar(titleTextBlock);

@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Autofac;
+using UwpClientApp.Business.Services;
 
 namespace UwpClientApp.Data.Api.Rest
 {
@@ -7,11 +9,13 @@ namespace UwpClientApp.Data.Api.Rest
     {
         private readonly UrlRequestBuilder _requestBuilder;
         private readonly IList<KeyValuePair<string, string>> _params;
+        private readonly IPreferencesService _preferencesService;
 
         public PostFormUrlEncodedRequestBuilder(UrlRequestBuilder requestBuilder)
         {
             _requestBuilder = requestBuilder;
             _params = new List<KeyValuePair<string, string>>();
+            _preferencesService = App.Container.Resolve<IPreferencesService>();
         }
 
         public PostFormUrlEncodedRequestBuilder Param(string key, string value)
@@ -20,10 +24,10 @@ namespace UwpClientApp.Data.Api.Rest
             return this;
         }
 
-        public Task<T> PostAsync<T>()
+        public Task<TResult> PostAsync<TResult>()
         {
             Request request = _requestBuilder.CreateRequest();
-            return request.PostFormUrlEncoded<T>(_params);
+            return request.PostFormUrlEncoded<TResult>(_params);
         }
     }
 }

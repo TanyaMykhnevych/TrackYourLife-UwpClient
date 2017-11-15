@@ -96,8 +96,16 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Business\Services\IAuthenticationService.cs" />
+    <Compile Include="Business\Services\Implementations\AuthenticationService.cs" />
+    <Compile Include="Business\Services\Implementations\NetworkService.cs" />
+    <Compile Include="Business\Services\Implementations\PreferencesService.cs" />
+    <Compile Include="Business\Services\INetworkService.cs" />
+    <Compile Include="Business\Services\IPreferencesService.cs" />
     <Compile Include="Data\Api\ApiException.cs" />
     <Compile Include="Data\Api\ApiRouting.cs" />
+    <Compile Include="Data\Api\APIs\IAuthRestApi.cs" />
+    <Compile Include="Data\Api\APIs\Implementations\AuthRestApi.cs" />
     <Compile Include="Data\Api\Rest\IRequestInterceptor.cs" />
     <Compile Include="Data\Api\Rest\PostFormUrlEncodedRequestBuilder.cs" />
     <Compile Include="Data\Api\Rest\Request.cs" />
@@ -105,10 +113,25 @@
     <Compile Include="Data\Api\Rest\RestApiBase.cs" />
     <Compile Include="Data\Api\Rest\UrlRequestBuilder.cs" />
     <Compile Include="Infrastructure\AutofacRegistrator.cs" />
-    <Compile Include="Presentation\Models\FlickrPhoto.cs" />
+    <Compile Include="Presentation\Models\Auth\TokenModel.cs" />
+    <Compile Include="Presentation\Models\Auth\LoginModel.cs" />
+    <Compile Include="Presentation\Models\Auth\UserInfoModel.cs" />
+    <Compile Include="Presentation\Models\Clinics\ClinicDetailsViewModel.cs" />
+    <Compile Include="Presentation\Models\Clinics\ClinicListItemViewModel.cs" />
+    <Compile Include="Presentation\Models\Clinics\ClinicListViewModel.cs" />
+    <Compile Include="Presentation\Models\Clinics\EditClinicViewModel.cs" />
+    <Compile Include="Presentation\Models\OrganInfos\EditOrganInfoViewModel.cs" />
+    <Compile Include="Presentation\Models\OrganInfos\OrganInfoDetailsViewModel.cs" />
+    <Compile Include="Presentation\Models\OrganInfos\OrganInfoListItemViewModel.cs" />
+    <Compile Include="Presentation\Models\OrganInfos\OrganInfoListViewModel.cs" />
+    <Compile Include="Presentation\Models\ResponseWrapper.cs" />
     <Compile Include="Presentation\ViewModels\AppViewModelExample.cs" />
+    <Compile Include="Presentation\ViewModels\LoginViewModel.cs" />
     <Compile Include="Presentation\ViewModels\MenuContentViewModel.cs" />
     <Compile Include="Presentation\ViewModels\ViewModelBase.cs" />
+    <Compile Include="Presentation\Views\LoginPage\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Presentation\Views\MenuPage\MainPage\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -144,6 +167,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Presentation\Views\LoginPage\LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Presentation\Views\MenuPage\MainPage\MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -176,7 +203,6 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Business\Services\Implementations\" />
     <Folder Include="Presentation\Resources\" />
     <Folder Include="Presentation\Utils\" />
   </ItemGroup>

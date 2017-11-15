@@ -1,6 +1,11 @@
 ﻿using System;
 using System.Linq;
+using Windows.UI.Core;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using ReactiveUI;
+using UwpClientApp.Business.Services;
+using UwpClientApp.Presentation.Views.LoginPage;
 using UwpClientApp.Presentation.Views.MenuPage.MainPage;
 using UwpClientApp.Presentation.Views.MenuPage.Test1Page;
 using UwpClientApp.Presentation.Views.MenuPage.Test2Page;
@@ -9,12 +14,16 @@ namespace UwpClientApp.Presentation.ViewModels
 {
     public class MenuContentViewModel : ViewModelBase
     {
+        private readonly IPreferencesService _preferencesService;
+
         private bool _isPaneOpened;
         private MenuItemViewModel _selectedMenuItem;
         private Type _currentPage;
 
-        public MenuContentViewModel()
+        public MenuContentViewModel(IPreferencesService preferencesService)
         {
+            _preferencesService = preferencesService;
+
             OpenClosePaneCommand = ReactiveCommand.Create(OpenClosePaneCommandExecuted);
 
             this.ObservableForProperty(x => x.SelectedMenuItem)
@@ -49,7 +58,16 @@ namespace UwpClientApp.Presentation.ViewModels
 
         public void OnSelectedMenuItemChanged(MenuItemViewModel item)
         {
-            CurrentPage = item.PageType;
+            if (item.PageType != typeof(LoginPage))
+            {
+                CurrentPage = item.PageType;
+            }
+            else
+            {
+                var frame = (Window.Current.Content as Frame);
+                frame?.Navigate(item.PageType);
+                _preferencesService.Clear();
+            }
             IsPaneOpened = false;
         }
 
@@ -78,6 +96,12 @@ namespace UwpClientApp.Presentation.ViewModels
                 DisplayName = "Test2Page",
                 Icon = "\xE716",
                 PageType = typeof(Test2Page)
+            });
+            MenuItems.Add(new MenuItemViewModel()
+            {
+                DisplayName = "Logout",
+                Icon = "\xE716",
+                PageType = typeof(LoginPage)
             });
         }
 

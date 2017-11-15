@@ -17,13 +17,25 @@ namespace UwpClientApp.Data.Api.Rest
         {
             foreach (var queryItem in _queryItems)
             {
+                httpClient.DefaultRequestHeaders.Remove(queryItem.Key);
                 httpClient.DefaultRequestHeaders.Add(queryItem.Key, queryItem.Value);
             }
         }
 
         public void AddInterceptor(KeyValuePair<string, string> interceptor)
         {
+            RemoveInterceptorIfExist(interceptor.Key);
             _queryItems.Add(interceptor);
+        }
+
+        public void RemoveInterceptorIfExist(string key)
+        {
+            bool isAlreadyExist = _queryItems.Any(x => x.Key == key);
+            if (isAlreadyExist)
+            {
+                var itemToRemove = _queryItems.Single(x => x.Key == key);
+                _queryItems.Remove(itemToRemove);
+            }
         }
     }
 }
