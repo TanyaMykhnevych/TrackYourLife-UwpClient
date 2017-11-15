@@ -15,14 +15,14 @@ using Windows.UI.Xaml.Navigation;
 
 // Документацию по шаблону элемента "Пустая страница" см. по адресу https://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace UwpClientApp.Presentation.Views.MenuPage.Test1Page
+namespace UwpClientApp.Presentation.Views.MenuPage
 {
     /// <summary>
     /// Пустая страница, которую можно использовать саму по себе или для перехода внутри фрейма.
     /// </summary>
-    public sealed partial class Test1Page : Page
+    public sealed partial class FirstMainPage : Page
     {
-        public Test1Page()
+        public FirstMainPage()
         {
             this.InitializeComponent();
         }

@@ -5,10 +5,11 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using ReactiveUI;
 using UwpClientApp.Business.Services;
+using UwpClientApp.Presentation.Constants;
 using UwpClientApp.Presentation.Views.LoginPage;
-using UwpClientApp.Presentation.Views.MenuPage.MainPage;
-using UwpClientApp.Presentation.Views.MenuPage.Test1Page;
-using UwpClientApp.Presentation.Views.MenuPage.Test2Page;
+using UwpClientApp.Presentation.Views.MenuPage;
+using UwpClientApp.Presentation.Views.MenuPage.Donor;
+using UwpClientApp.Presentation.Views.MenuPage.Patient;
 
 namespace UwpClientApp.Presentation.ViewModels
 {
@@ -73,34 +74,52 @@ namespace UwpClientApp.Presentation.ViewModels
 
         private void FillMenuItems()
         {
-            MenuItems.Add(new MenuItemViewModel()
+            string userRole = _preferencesService.UserInfo?.RoleName;
+
+            MenuItems.Add(new MenuItemViewModel
             {
-                DisplayName = "MainPage",
-                Icon = "\xEE57",
-                PageType = typeof(MainPage)
-            });
-            MenuItems.Add(new MenuItemViewModel()
-            {
-                DisplayName = "Test1Page",
+                DisplayName = "First Main - Default Empty Page",
                 Icon = "\xE779",
-                PageType = typeof(Test1Page)
+                PageType = typeof(FirstMainPage)
             });
-            MenuItems.Add(new MenuItemViewModel()
+
+            if (userRole == RolesConstants.Patient)
             {
-                DisplayName = "Test2Page",
-                Icon = "\xEE92",
-                PageType = typeof(Test2Page)
-            });
-            MenuItems.Add(new MenuItemViewModel()
+                MenuItems.Add(new MenuItemViewModel
+                {
+                    DisplayName = "Create Patient Request",
+                    Icon = "\xEE57",
+                    PageType = typeof(CreatePatientRequestPage)
+                });
+
+                MenuItems.Add(new MenuItemViewModel
+                {
+                    DisplayName = "My Patient Requests",
+                    Icon = "\xEE57",
+                    PageType = typeof(PatientRequestListPage)
+                });
+            }
+            else if(userRole == RolesConstants.Donor)
             {
-                DisplayName = "Test2Page",
-                Icon = "\xE716",
-                PageType = typeof(Test2Page)
-            });
-            MenuItems.Add(new MenuItemViewModel()
+                MenuItems.Add(new MenuItemViewModel
+                {
+                    DisplayName = "Create Donor Request",
+                    Icon = "\xEE57",
+                    PageType = typeof(CreateDonorRequestPage)
+                });
+
+                MenuItems.Add(new MenuItemViewModel
+                {
+                    DisplayName = "My Donor Requests",
+                    Icon = "\xEE57",
+                    PageType = typeof(DonorRequestListPage)
+                });
+            }
+
+            MenuItems.Add(new MenuItemViewModel
             {
                 DisplayName = "Logout",
-                Icon = "\xE716",
+                Icon = "\xEE57",
                 PageType = typeof(LoginPage)
             });
         }

@@ -27,7 +27,7 @@ namespace UwpClientApp.Presentation.ViewModels
 
             LoginModel = new LoginModel
             {
-                Username = "medEmployee1@test.com",
+                Username = "donor1@test.com",
                 Password = "Test123!",
                 RememberMe = true
             };
@@ -49,8 +49,7 @@ namespace UwpClientApp.Presentation.ViewModels
                 bool isSuccess = await _authenticationService.LoginAsync(LoginModel.Username, LoginModel.Password, LoginModel.RememberMe);
                 if (isSuccess)
                 {
-                    var frame = Window.Current.Content as Frame;
-                    frame?.Navigate(typeof(MenuContentPage));
+                    GoToMenuContainerPage();
                 }
             }
             catch (Exception ex)
@@ -61,6 +60,12 @@ namespace UwpClientApp.Presentation.ViewModels
             {
                 IsBusy = false;
             }
+        }
+
+        private void GoToMenuContainerPage()
+        {
+            var frame = Window.Current.Content as Frame;
+            frame?.Navigate(typeof(MenuContentPage));
         }
     }
 }

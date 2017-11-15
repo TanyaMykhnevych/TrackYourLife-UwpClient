@@ -113,6 +113,7 @@
     <Compile Include="Data\Api\Rest\RestApiBase.cs" />
     <Compile Include="Data\Api\Rest\UrlRequestBuilder.cs" />
     <Compile Include="Infrastructure\AutofacRegistrator.cs" />
+    <Compile Include="Presentation\Constants\RolesConstants.cs" />
     <Compile Include="Presentation\Models\Auth\TokenModel.cs" />
     <Compile Include="Presentation\Models\Auth\LoginModel.cs" />
     <Compile Include="Presentation\Models\Auth\UserInfoModel.cs" />
@@ -126,23 +127,41 @@
     <Compile Include="Presentation\Models\OrganInfos\OrganInfoListViewModel.cs" />
     <Compile Include="Presentation\Models\ResponseWrapper.cs" />
     <Compile Include="Presentation\ViewModels\AppViewModelExample.cs" />
+    <Compile Include="Presentation\ViewModels\DonorRequest\CreateDonorRequestViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\DonorRequest\DonorRequestDetailsViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\DonorRequest\DonorRequestListViewModel.cs" />
     <Compile Include="Presentation\ViewModels\LoginViewModel.cs" />
     <Compile Include="Presentation\ViewModels\MenuContentViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\PatientRequest\CreatePatientRequestViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\PatientRequest\PatientRequestDetailsViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\PatientRequest\PatientRequestListViewModel.cs" />
     <Compile Include="Presentation\ViewModels\ViewModelBase.cs" />
     <Compile Include="Presentation\Views\LoginPage\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Views\MenuPage\MainPage\MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
+    <Compile Include="Presentation\Views\MenuPage\Donor\CreateDonorRequestPage.xaml.cs">
+      <DependentUpon>CreateDonorRequestPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\MenuPage\Donor\DonorRequestDetailsPage.xaml.cs">
+      <DependentUpon>DonorRequestDetailsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\MenuPage\Donor\DonorRequestListPage.xaml.cs">
+      <DependentUpon>DonorRequestListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\MenuPage\FirstMainPage.xaml.cs">
+      <DependentUpon>FirstMainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Presentation\Views\MenuPage\MenuContentPage.xaml.cs">
       <DependentUpon>MenuContentPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Views\MenuPage\Test1Page\Test1Page.xaml.cs">
-      <DependentUpon>Test1Page.xaml</DependentUpon>
+    <Compile Include="Presentation\Views\MenuPage\Patient\CreatePatientRequestPage.xaml.cs">
+      <DependentUpon>CreatePatientRequestPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Views\MenuPage\Test2Page\Test2Page.xaml.cs">
-      <DependentUpon>Test2Page.xaml</DependentUpon>
+    <Compile Include="Presentation\Views\MenuPage\Patient\PatientRequestDetailsPage.xaml.cs">
+      <DependentUpon>PatientRequestDetailsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\MenuPage\Patient\PatientRequestListPage.xaml.cs">
+      <DependentUpon>PatientRequestListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -171,7 +190,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Presentation\Views\MenuPage\MainPage\MainPage.xaml">
+    <Page Include="Presentation\Views\MenuPage\Donor\CreateDonorRequestPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\MenuPage\Donor\DonorRequestDetailsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\MenuPage\Donor\DonorRequestListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\MenuPage\FirstMainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -179,11 +210,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Presentation\Views\MenuPage\Test1Page\Test1Page.xaml">
+    <Page Include="Presentation\Views\MenuPage\Patient\CreatePatientRequestPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Presentation\Views\MenuPage\Test2Page\Test2Page.xaml">
+    <Page Include="Presentation\Views\MenuPage\Patient\PatientRequestDetailsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\MenuPage\Patient\PatientRequestListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

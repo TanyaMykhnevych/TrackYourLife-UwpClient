@@ -4,6 +4,8 @@ using UwpClientApp.Business.Services.Implementations;
 using UwpClientApp.Data.Api.APIs;
 using UwpClientApp.Data.Api.APIs.Implementations;
 using UwpClientApp.Presentation.ViewModels;
+using UwpClientApp.Presentation.ViewModels.DonorRequest;
+using UwpClientApp.Presentation.ViewModels.PatientRequest;
 
 namespace UwpClientApp.Infrastructure
 {
@@ -20,6 +22,14 @@ namespace UwpClientApp.Infrastructure
         {
             builder.RegisterType<MenuContentViewModel>().AsSelf().AsImplementedInterfaces();
             builder.RegisterType<LoginViewModel>().AsSelf().AsImplementedInterfaces();
+
+            builder.RegisterType<CreateDonorRequestViewModel>().AsSelf().AsImplementedInterfaces();
+            builder.RegisterType<DonorRequestListViewModel>().AsSelf().AsImplementedInterfaces();
+            builder.RegisterType<DonorRequestDetailsViewModel>().AsSelf().AsImplementedInterfaces();
+
+            builder.RegisterType<CreatePatientRequestViewModel>().AsSelf().AsImplementedInterfaces();
+            builder.RegisterType<PatientRequestListViewModel>().AsSelf().AsImplementedInterfaces();
+            builder.RegisterType<PatientRequestDetailsViewModel>().AsSelf().AsImplementedInterfaces();
         }
 
         private static void RegisterServices(ContainerBuilder builder)
