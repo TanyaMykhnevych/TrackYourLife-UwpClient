@@ -79,7 +79,7 @@ namespace UwpClientApp.Presentation.ViewModels
             MenuItems.Add(new MenuItemViewModel
             {
                 DisplayName = "First Main - Default Empty Page",
-                Icon = "\xE779",
+                Icon = "\xE80F",
                 PageType = typeof(FirstMainPage)
             });
 
@@ -87,15 +87,15 @@ namespace UwpClientApp.Presentation.ViewModels
             {
                 MenuItems.Add(new MenuItemViewModel
                 {
-                    DisplayName = "Create Patient Request",
-                    Icon = "\xEE57",
+                    DisplayName = "Create Recipient Request",
+                    Icon = "\xE8FA",
                     PageType = typeof(CreatePatientRequestPage)
                 });
 
                 MenuItems.Add(new MenuItemViewModel
                 {
-                    DisplayName = "My Patient Requests",
-                    Icon = "\xEE57",
+                    DisplayName = "My Recipient Requests",
+                    Icon = "\xE779",
                     PageType = typeof(PatientRequestListPage)
                 });
             }
@@ -104,14 +104,14 @@ namespace UwpClientApp.Presentation.ViewModels
                 MenuItems.Add(new MenuItemViewModel
                 {
                     DisplayName = "Create Donor Request",
-                    Icon = "\xEE57",
+                    Icon = "\xE710",
                     PageType = typeof(CreateDonorRequestPage)
                 });
 
                 MenuItems.Add(new MenuItemViewModel
                 {
                     DisplayName = "My Donor Requests",
-                    Icon = "\xEE57",
+                    Icon = "\xE133",
                     PageType = typeof(DonorRequestListPage)
                 });
             }
@@ -119,7 +119,7 @@ namespace UwpClientApp.Presentation.ViewModels
             MenuItems.Add(new MenuItemViewModel
             {
                 DisplayName = "Logout",
-                Icon = "\xEE57",
+                Icon = "\xE8F8",
                 PageType = typeof(LoginPage)
             });
         }

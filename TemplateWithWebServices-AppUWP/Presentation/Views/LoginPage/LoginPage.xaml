@@ -7,7 +7,10 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush Stretch="Fill" Opacity="0.2" ImageSource="/Assets/background.png" AlignmentY="Center" AlignmentX="Center"/>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
@@ -15,19 +18,30 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel x:Name="LoginStackPanel" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Padding="150,50,150,50">
+        <StackPanel x:Name="LoginStackPanel" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="150,0,150,50">
+            <Image Stretch="None"
+                   Opacity="1" 
+                   Source="/Assets/logo.png"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
             <TextBox x:Name="EmailTextBox"  
                      Header="Email" 
+                     Width="500"
+                     Margin="0,10,0,10"
                      PlaceholderText="Enter your email"/>
 
             <PasswordBox x:Name="PasswordBox"  
                          Header="Password" 
+                         Width="500"
+                         Margin="0,10,0,10"
                          PlaceholderText="Enter your password"/>
 
             <TextBlock>Remember me</TextBlock>
             <CheckBox x:Name="RememberMeCheckBox" />
 
-            <Button x:Name="SignInButton">Sign In</Button>
+            <Button x:Name="SignInButton"
+                    Margin="0,20,0,20"
+                    Background="CadetBlue">Sign In</Button>
         </StackPanel>
 
 
