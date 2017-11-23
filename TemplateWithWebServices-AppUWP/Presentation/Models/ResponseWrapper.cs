@@ -9,6 +9,6 @@
     {
         public string ErrorMessage { get; set; }
 
-        public bool IsValid => string.IsNullOrEmpty(ErrorMessage);
+        public bool IsValid { get; set; }
     }
 }

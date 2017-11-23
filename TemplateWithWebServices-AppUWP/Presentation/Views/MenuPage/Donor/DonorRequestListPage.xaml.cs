@@ -11,7 +11,8 @@ namespace UwpClientApp.Presentation.Views.MenuPage.Donor
     public sealed partial class DonorRequestListPage : IViewFor<DonorRequestListViewModel>
     {
         public static readonly DependencyProperty ViewModelProperty =
-            DependencyProperty.Register("ViewModel", typeof(DonorRequestListViewModel), typeof(DonorRequestListPage), new PropertyMetadata(default(DonorRequestListViewModel)));
+            DependencyProperty.Register("ViewModel", typeof(DonorRequestListViewModel),
+                typeof(DonorRequestListPage), new PropertyMetadata(default(DonorRequestListViewModel)));
 
         public DonorRequestListPage()
         {
@@ -23,7 +24,7 @@ namespace UwpClientApp.Presentation.Views.MenuPage.Donor
 
         private void CreateBindings(Action<IDisposable> d)
         {
-
+            d(this.OneWayBind(ViewModel, vm => vm.DonorRequestList, v => v.DonorRequestList.ItemsSource));
         }
 
         object IViewFor.ViewModel

@@ -97,14 +97,18 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Business\Services\IAuthenticationService.cs" />
+    <Compile Include="Business\Services\IDonorRequestService.cs" />
     <Compile Include="Business\Services\Implementations\AuthenticationService.cs" />
+    <Compile Include="Business\Services\Implementations\DonorRequestService.cs" />
     <Compile Include="Business\Services\Implementations\NetworkService.cs" />
     <Compile Include="Business\Services\Implementations\PreferencesService.cs" />
     <Compile Include="Business\Services\INetworkService.cs" />
     <Compile Include="Business\Services\IPreferencesService.cs" />
     <Compile Include="Data\Api\ApiException.cs" />
     <Compile Include="Data\Api\ApiRouting.cs" />
+    <Compile Include="Data\Api\APIs\IDonorRequestRestApi.cs" />
     <Compile Include="Data\Api\APIs\IAuthRestApi.cs" />
+    <Compile Include="Data\Api\APIs\Implementations\DonorRequestRestApi.cs" />
     <Compile Include="Data\Api\APIs\Implementations\AuthRestApi.cs" />
     <Compile Include="Data\Api\Rest\IRequestInterceptor.cs" />
     <Compile Include="Data\Api\Rest\PostFormUrlEncodedRequestBuilder.cs" />
@@ -114,33 +118,56 @@
     <Compile Include="Data\Api\Rest\UrlRequestBuilder.cs" />
     <Compile Include="Infrastructure\AutofacRegistrator.cs" />
     <Compile Include="Presentation\Constants\RolesConstants.cs" />
-    <Compile Include="Presentation\Models\Auth\TokenModel.cs" />
+    <Compile Include="Data\Entities\Base\BaseEntity.cs" />
+    <Compile Include="Data\Entities\Base\IBaseEntity.cs" />
+    <Compile Include="Data\Entities\Clinic.cs" />
+    <Compile Include="Data\Entities\Identity\AppUser.cs" />
+    <Compile Include="Data\Entities\OrganDelivery\OrganDataSnapshot.cs" />
+    <Compile Include="Data\Entities\OrganDelivery\OrganDeliveryInfo.cs" />
+    <Compile Include="Data\Entities\OrganRequests\DonorMedicalExam.cs" />
+    <Compile Include="Data\Entities\OrganRequests\DonorRequest.cs" />
+    <Compile Include="Data\Entities\OrganRequests\PatientRequest.cs" />
+    <Compile Include="Data\Entities\OrganRequests\RequestsRelation.cs" />
+    <Compile Include="Data\Entities\Organ\OrganInfo.cs" />
+    <Compile Include="Data\Entities\Organ\TransplantOrgan.cs" />
+    <Compile Include="Data\Entities\UserInfo.cs" />
+    <Compile Include="Presentation\Enums\AppClaimTypes.cs" />
+    <Compile Include="Presentation\Enums\DonorRequestStatuses.cs" />
+    <Compile Include="Presentation\Enums\MedicalExamStatuses.cs" />
+    <Compile Include="Presentation\Enums\OrganDeliveryStatuses.cs" />
+    <Compile Include="Presentation\Enums\PatientRequestPriority.cs" />
+    <Compile Include="Presentation\Enums\PatientRequestStatuses.cs" />
+    <Compile Include="Presentation\Enums\TransplantOrganStatuses.cs" />
     <Compile Include="Presentation\Models\Auth\LoginModel.cs" />
+    <Compile Include="Presentation\Models\Auth\TokenModel.cs" />
     <Compile Include="Presentation\Models\Auth\UserInfoModel.cs" />
-    <Compile Include="Presentation\Models\Clinics\ClinicDetailsViewModel.cs" />
-    <Compile Include="Presentation\Models\Clinics\ClinicListItemViewModel.cs" />
-    <Compile Include="Presentation\Models\Clinics\ClinicListViewModel.cs" />
-    <Compile Include="Presentation\Models\Clinics\EditClinicViewModel.cs" />
-    <Compile Include="Presentation\Models\OrganInfos\EditOrganInfoViewModel.cs" />
-    <Compile Include="Presentation\Models\OrganInfos\OrganInfoDetailsViewModel.cs" />
-    <Compile Include="Presentation\Models\OrganInfos\OrganInfoListItemViewModel.cs" />
-    <Compile Include="Presentation\Models\OrganInfos\OrganInfoListViewModel.cs" />
+    <Compile Include="Presentation\Models\Clinics\ClinicDetailsModel.cs" />
+    <Compile Include="Presentation\Models\Clinics\ClinicListItemModel.cs" />
+    <Compile Include="Presentation\Models\Clinics\ClinicListModel.cs" />
+    <Compile Include="Presentation\Models\Clinics\EditClinicModel.cs" />
+    <Compile Include="Presentation\Models\DonorRequests\DonorRequestDetailsModel.cs" />
+    <Compile Include="Presentation\Models\DonorRequests\DonorRequestListItemModel.cs" />
+    <Compile Include="Presentation\Models\DonorRequests\DonorRequestListModel.cs" />
+    <Compile Include="Presentation\Models\MedicalExam\DonorMedicalExamListItemModel.cs" />
+    <Compile Include="Presentation\Models\OrganInfos\EditOrganInfoModel.cs" />
+    <Compile Include="Presentation\Models\OrganInfos\OrganInfoDetailsModel.cs" />
+    <Compile Include="Presentation\Models\OrganInfos\OrganInfoListItemModel.cs" />
+    <Compile Include="Presentation\Models\OrganInfos\OrganInfoListModel.cs" />
+    <Compile Include="Presentation\Models\PatientRequests\PatientRequestDetailsModel.cs" />
+    <Compile Include="Presentation\Models\PatientRequests\PatientRequestListItemModel.cs" />
+    <Compile Include="Presentation\Models\PatientRequests\PatientRequestListModel.cs" />
     <Compile Include="Presentation\Models\ResponseWrapper.cs" />
+    <Compile Include="Presentation\Models\UserInfo\UserInfoDetailedModel.cs" />
     <Compile Include="Presentation\ViewModels\AppViewModelExample.cs" />
-    <Compile Include="Presentation\ViewModels\DonorRequest\CreateDonorRequestViewModel.cs" />
     <Compile Include="Presentation\ViewModels\DonorRequest\DonorRequestDetailsViewModel.cs" />
     <Compile Include="Presentation\ViewModels\DonorRequest\DonorRequestListViewModel.cs" />
     <Compile Include="Presentation\ViewModels\LoginViewModel.cs" />
     <Compile Include="Presentation\ViewModels\MenuContentViewModel.cs" />
-    <Compile Include="Presentation\ViewModels\PatientRequest\CreatePatientRequestViewModel.cs" />
     <Compile Include="Presentation\ViewModels\PatientRequest\PatientRequestDetailsViewModel.cs" />
     <Compile Include="Presentation\ViewModels\PatientRequest\PatientRequestListViewModel.cs" />
     <Compile Include="Presentation\ViewModels\ViewModelBase.cs" />
     <Compile Include="Presentation\Views\LoginPage\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Presentation\Views\MenuPage\Donor\CreateDonorRequestPage.xaml.cs">
-      <DependentUpon>CreateDonorRequestPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Presentation\Views\MenuPage\Donor\DonorRequestDetailsPage.xaml.cs">
       <DependentUpon>DonorRequestDetailsPage.xaml</DependentUpon>
@@ -153,9 +180,6 @@
     </Compile>
     <Compile Include="Presentation\Views\MenuPage\MenuContentPage.xaml.cs">
       <DependentUpon>MenuContentPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Presentation\Views\MenuPage\Patient\CreatePatientRequestPage.xaml.cs">
-      <DependentUpon>CreatePatientRequestPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Presentation\Views\MenuPage\Patient\PatientRequestDetailsPage.xaml.cs">
       <DependentUpon>PatientRequestDetailsPage.xaml</DependentUpon>
@@ -190,10 +214,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Presentation\Views\MenuPage\Donor\CreateDonorRequestPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Presentation\Views\MenuPage\Donor\DonorRequestDetailsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -209,10 +229,6 @@
     <Page Include="Presentation\Views\MenuPage\MenuContentPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Presentation\Views\MenuPage\Patient\CreatePatientRequestPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Presentation\Views\MenuPage\Patient\PatientRequestDetailsPage.xaml">
       <SubType>Designer</SubType>

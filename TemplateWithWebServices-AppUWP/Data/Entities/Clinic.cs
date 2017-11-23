@@ -1,6 +1,8 @@
-﻿namespace UwpClientApp.Presentation.Models.Clinics
+﻿using UwpClientApp.Data.Entities.Base;
+
+namespace UwpClientApp.Data.Entities
 {
-    public class ClinicDetailsViewModel
+    public class Clinic : BaseEntity
     {
         public int Id { get; set; }
 

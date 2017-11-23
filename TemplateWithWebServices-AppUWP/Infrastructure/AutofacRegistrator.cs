@@ -22,12 +22,10 @@ namespace UwpClientApp.Infrastructure
         {
             builder.RegisterType<MenuContentViewModel>().AsSelf().AsImplementedInterfaces();
             builder.RegisterType<LoginViewModel>().AsSelf().AsImplementedInterfaces();
-
-            builder.RegisterType<CreateDonorRequestViewModel>().AsSelf().AsImplementedInterfaces();
+            
             builder.RegisterType<DonorRequestListViewModel>().AsSelf().AsImplementedInterfaces();
             builder.RegisterType<DonorRequestDetailsViewModel>().AsSelf().AsImplementedInterfaces();
 
-            builder.RegisterType<CreatePatientRequestViewModel>().AsSelf().AsImplementedInterfaces();
             builder.RegisterType<PatientRequestListViewModel>().AsSelf().AsImplementedInterfaces();
             builder.RegisterType<PatientRequestDetailsViewModel>().AsSelf().AsImplementedInterfaces();
         }
@@ -37,11 +35,13 @@ namespace UwpClientApp.Infrastructure
             builder.RegisterType<PreferencesService>().As<IPreferencesService>();
             builder.RegisterType<AuthenticationService>().As<IAuthenticationService>();
             builder.RegisterType<NetworkService>().As<INetworkService>();
+            builder.RegisterType<DonorRequestService>().As<IDonorRequestService>();
         }
 
         private static void RegisterApis(ContainerBuilder builder)
         {
             builder.RegisterType<AuthRestApi>().As<IAuthRestApi>();
+            builder.RegisterType<DonorRequestRestApi>().As<IDonorRequestRestApi>();
         }
     }
 }

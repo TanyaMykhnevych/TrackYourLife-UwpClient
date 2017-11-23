@@ -87,13 +87,6 @@ namespace UwpClientApp.Presentation.ViewModels
             {
                 MenuItems.Add(new MenuItemViewModel
                 {
-                    DisplayName = "Create Patient Request",
-                    Icon = "\xEE57",
-                    PageType = typeof(CreatePatientRequestPage)
-                });
-
-                MenuItems.Add(new MenuItemViewModel
-                {
                     DisplayName = "My Patient Requests",
                     Icon = "\xEE57",
                     PageType = typeof(PatientRequestListPage)
@@ -101,13 +94,6 @@ namespace UwpClientApp.Presentation.ViewModels
             }
             else if(userRole == RolesConstants.Donor)
             {
-                MenuItems.Add(new MenuItemViewModel
-                {
-                    DisplayName = "Create Donor Request",
-                    Icon = "\xEE57",
-                    PageType = typeof(CreateDonorRequestPage)
-                });
-
                 MenuItems.Add(new MenuItemViewModel
                 {
                     DisplayName = "My Donor Requests",

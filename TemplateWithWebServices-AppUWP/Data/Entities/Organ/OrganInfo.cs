@@ -1,10 +1,10 @@
 ﻿using System;
+using UwpClientApp.Data.Entities.Base;
 
-namespace UwpClientApp.Presentation.Models.OrganInfos
+namespace UwpClientApp.Data.Entities.Organ
 {
-    public class OrganInfoListItemViewModel
+    public class OrganInfo : BaseEntity
     {
-
         public int Id { get; set; }
 
         public string Name { get; set; }

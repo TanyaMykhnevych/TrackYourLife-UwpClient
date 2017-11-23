@@ -1,8 +1,9 @@
 ﻿using System;
+using UwpClientApp.Data.Entities.Organ;
 
 namespace UwpClientApp.Presentation.Models.OrganInfos
 {
-    public class OrganInfoDetailsViewModel
+    public class OrganInfoDetailsModel
     {
         public int Id { get; set; }
 
