@@ -79,7 +79,7 @@ namespace UwpClientApp.Presentation.ViewModels
             MenuItems.Add(new MenuItemViewModel
             {
                 DisplayName = "First Main - Default Empty Page",
-                Icon = "\xE779",
+                Icon = "\xE80F",
                 PageType = typeof(FirstMainPage)
             });
 
@@ -87,8 +87,8 @@ namespace UwpClientApp.Presentation.ViewModels
             {
                 MenuItems.Add(new MenuItemViewModel
                 {
-                    DisplayName = "My Patient Requests",
-                    Icon = "\xEE57",
+                    Icon = "\xE779",
+                    DisplayName = "My Recipient Requests",
                     PageType = typeof(PatientRequestListPage)
                 });
             }
@@ -97,7 +97,7 @@ namespace UwpClientApp.Presentation.ViewModels
                 MenuItems.Add(new MenuItemViewModel
                 {
                     DisplayName = "My Donor Requests",
-                    Icon = "\xEE57",
+                    Icon = "\xE133",
                     PageType = typeof(DonorRequestListPage)
                 });
             }
@@ -105,7 +105,7 @@ namespace UwpClientApp.Presentation.ViewModels
             MenuItems.Add(new MenuItemViewModel
             {
                 DisplayName = "Logout",
-                Icon = "\xEE57",
+                Icon = "\xE8F8",
                 PageType = typeof(LoginPage)
             });
         }
