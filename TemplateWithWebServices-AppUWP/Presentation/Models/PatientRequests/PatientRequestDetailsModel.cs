@@ -14,6 +14,10 @@ namespace UwpClientApp.Presentation.Models.PatientRequests
 
         public PatientRequestStatuses Status { get; set; }
 
+        public string PatientName => PatientInfo != null
+            ? PatientInfo.FirstName + " " + PatientInfo.SecondName
+            : "No Patient Info Loaded";
+
         public int? PatientInfoId { get; set; }
         public UserInfoDetailedModel PatientInfo { get; set; }
 

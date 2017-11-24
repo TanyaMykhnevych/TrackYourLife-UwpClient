@@ -20,6 +20,9 @@ namespace UwpClientApp.Presentation.Models.DonorRequests
         public int DonorInfoId { get; set; }
         public UserInfoDetailedModel DonorInfo { get; set; }
 
+        public string DonorName =>
+            DonorInfo != null ? DonorInfo.FirstName + " " + DonorInfo.SecondName : "No Donor Info Loaded";
+
         public int OrganInfoId { get; set; }
         public OrganInfoDetailsModel OrganInfo { get; set; }
         

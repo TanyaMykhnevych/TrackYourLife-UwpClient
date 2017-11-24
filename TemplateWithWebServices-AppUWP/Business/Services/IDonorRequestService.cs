@@ -7,5 +7,7 @@ namespace UwpClientApp.Business.Services
     public interface IDonorRequestService
     {
         Task<ResponseWrapper<DonorRequestListModel>> GetDonorRequestListAsync();
+
+        Task<ResponseWrapper<DonorRequestDetailsModel>> GetDonorRequestDetailsAsync(int donorRequestId);
     }
 }

@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Navigation;
 using Autofac;
 using ReactiveUI;
 using UwpClientApp.Presentation.ViewModels.DonorRequest;
@@ -13,7 +15,7 @@ namespace UwpClientApp.Presentation.Views.MenuPage.Donor
         public static readonly DependencyProperty ViewModelProperty =
             DependencyProperty.Register("ViewModel", typeof(DonorRequestListViewModel),
                 typeof(DonorRequestListPage), new PropertyMetadata(default(DonorRequestListViewModel)));
-
+        
         public DonorRequestListPage()
         {
             InitializeComponent();
@@ -24,7 +26,12 @@ namespace UwpClientApp.Presentation.Views.MenuPage.Donor
 
         private void CreateBindings(Action<IDisposable> d)
         {
-            d(this.OneWayBind(ViewModel, vm => vm.DonorRequestList, v => v.DonorRequestList.ItemsSource));
+            //DonorRequestsMasterDetails.NoSelectionContent = new object();
+
+            d(this.OneWayBind(ViewModel, vm => vm.DonorRequestList, v => v.DonorRequestsMasterDetails.ItemsSource));
+            d(this.Bind(ViewModel, vm => vm.SelectedItem, v => v.DonorRequestsMasterDetails.SelectedItem));
+            d(this.OneWayBind(ViewModel, vm => vm.MapListItemToDetails, v => v.DonorRequestsMasterDetails.MapDetails));
+            d(this.Bind(ViewModel, vm => vm.CurrentViewState, v => v.DonorRequestsMasterDetails.ViewState));
         }
 
         object IViewFor.ViewModel

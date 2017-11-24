@@ -7,5 +7,7 @@ namespace UwpClientApp.Data.Api.APIs
     public interface IDonorRequestRestApi
     {
         Task<ResponseWrapper<DonorRequestListModel>> GetDonorRequestListAsync();
+
+        Task<ResponseWrapper<DonorRequestDetailsModel>> GetDonorRequestDetailsAsync(int donorRequestId);
     }
 }

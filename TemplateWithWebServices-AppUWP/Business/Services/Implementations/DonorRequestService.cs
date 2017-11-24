@@ -2,7 +2,6 @@
 using UwpClientApp.Data.Api.APIs;
 using UwpClientApp.Presentation.Models;
 using UwpClientApp.Presentation.Models.DonorRequests;
-using UwpClientApp.Presentation.ViewModels.DonorRequest;
 
 namespace UwpClientApp.Business.Services.Implementations
 {
@@ -19,6 +18,11 @@ namespace UwpClientApp.Business.Services.Implementations
         public async Task<ResponseWrapper<DonorRequestListModel>> GetDonorRequestListAsync()
         {
             return await _requestRestApi.GetDonorRequestListAsync();
+        }
+
+        public async Task<ResponseWrapper<DonorRequestDetailsModel>> GetDonorRequestDetailsAsync(int donorRequestId)
+        {
+            return await _requestRestApi.GetDonorRequestDetailsAsync(donorRequestId);
         }
     }
 }

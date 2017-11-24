@@ -19,5 +19,12 @@ namespace UwpClientApp.Data.Api.APIs.Implementations
             return await Url("donorRequests/getDonorRequestList")
                 .GetAsync<ResponseWrapper<DonorRequestListModel>>();
         }
+
+        public async Task<ResponseWrapper<DonorRequestDetailsModel>> GetDonorRequestDetailsAsync(int donorRequestId)
+        {
+            return await Url($"donorRequests/getDonorRequestDetails/{donorRequestId}")
+                .GetAsync<ResponseWrapper<DonorRequestDetailsModel>>();
+            
+        }
     }
 }
