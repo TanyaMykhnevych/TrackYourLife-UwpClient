@@ -14,46 +14,83 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel>
             <TextBlock HorizontalAlignment="Center"
-                   Padding="50"
+                   Padding="30, 100, 30, 0"
                    FontSize="32"
                    Foreground="CadetBlue"> 
             Donor Request Details
             </TextBlock>
 
-            <StackPanel Grid.Column="1" Orientation="Vertical">
-                <StackPanel Orientation="Horizontal">
+            <controls:ImageEx x:Name="DonorImage"
+                          RelativePanel.AlignLeftWithPanel="True"
+                          RelativePanel.AlignTopWithPanel="True"
+                          RelativePanel.AlignBottomWithPanel="True"
+                          Width="150" Padding="50"
+                          Stretch="Uniform"
+                          Source="Assets/donorDetails.png">
+            </controls:ImageEx>
+
+            <StackPanel Grid.Column="1"
+                        Orientation="Vertical"
+                        Padding="20"
+                        Margin="20"
+                        Background="AliceBlue"
+                        CornerRadius="20"
+                        BorderThickness="1"
+                        BorderBrush="Aquamarine">
+                
+                <!--<StackPanel Orientation="Horizontal">
                     <TextBlock>Request Id:</TextBlock>
                     <TextBlock Text="{Binding Details.Id}"></TextBlock>
+                </StackPanel>-->
+
+                <StackPanel Orientation="Horizontal" Padding="10">
+                    <TextBlock FontSize="18"
+                               FontWeight="Bold"
+                               Padding="0,0,5,0">Message:</TextBlock>
+                    <TextBlock Text="{Binding Details.Message}"
+                               FontSize="18"
+                               FontStyle="Italic"></TextBlock>
                 </StackPanel>
 
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock>Message:</TextBlock>
-                    <TextBlock Text="{Binding Details.Message}"></TextBlock>
+                <StackPanel Orientation="Horizontal" Padding="10">
+                    <TextBlock FontSize="18"
+                               FontWeight="Bold"
+                               Padding="0,0,5,0">Donor:</TextBlock>
+                    <TextBlock Text="{Binding Details.DonorName}"
+                               FontSize="18"
+                               FontStyle="Italic"></TextBlock>
                 </StackPanel>
 
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock>Donor Name:</TextBlock>
-                    <TextBlock Text="{Binding Details.DonorName}"></TextBlock>
+                <StackPanel Orientation="Horizontal" Padding="10">
+                    <TextBlock FontSize="18"
+                               FontWeight="Bold"
+                               Padding="0,0,5,0">Organ:</TextBlock>
+                    <TextBlock Text="{Binding Details.OrganInfo.Name}"
+                               FontSize="18"
+                               FontStyle="Italic"></TextBlock>
                 </StackPanel>
 
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock>Organ Name:</TextBlock>
-                    <TextBlock Text="{Binding Details.OrganInfo.Name}"></TextBlock>
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal">
+                <!--<StackPanel Orientation="Horizontal">
                     <TextBlock>Patient Request Id:</TextBlock>
                     <TextBlock Text="{Binding Details.PatientRequest.Id}"></TextBlock>
+                </StackPanel>-->
+
+                <StackPanel Orientation="Horizontal" Padding="10">
+                    <TextBlock FontSize="18"
+                               FontWeight="Bold"
+                               Padding="0,0,5,0">Patient:</TextBlock>
+                    <TextBlock Text="{Binding Details.PatientRequest.PatientName}"
+                               FontSize="18"
+                               FontStyle="Italic"></TextBlock>
                 </StackPanel>
 
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock>Patient Name:</TextBlock>
-                    <TextBlock Text="{Binding Details.PatientRequest.PatientName}"></TextBlock>
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock>Medical Exams Count:</TextBlock>
-                    <TextBlock Text="{Binding Details.MedicalExamsCount}"></TextBlock>
+                <StackPanel Orientation="Horizontal" Padding="10">
+                    <TextBlock FontSize="18"
+                               FontWeight="Bold"
+                               Padding="0,0,5,0">Exams Tries:</TextBlock>
+                    <TextBlock Text="{Binding Details.MedicalExamsCount}"
+                               FontSize="18"
+                               FontStyle="Italic"></TextBlock>
                 </StackPanel>
             </StackPanel>
         </StackPanel>

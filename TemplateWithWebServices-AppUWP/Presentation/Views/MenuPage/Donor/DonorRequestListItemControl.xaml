@@ -10,24 +10,29 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <RelativePanel>
+    <RelativePanel Padding="15">
         <controls:ImageEx x:Name="DonorImage"
                           RelativePanel.AlignLeftWithPanel="True"
                           RelativePanel.AlignTopWithPanel="True"
                           RelativePanel.AlignBottomWithPanel="True"
-                          Width="50" Padding="15"
+                          Width="50" Padding="20"
                           Stretch="Uniform"
-                          Source="Assets/anonymous.png">
+                          Source="Assets/donor.png">
         </controls:ImageEx>
 
         <TextBlock x:Name="DonorNameTextBlock"
                    RelativePanel.RightOf="DonorImage"
                    RelativePanel.AlignTopWithPanel="True"
+                   Padding="15,10"
+                   FontSize="15"
+                   FontWeight="Bold"
+                   FontStyle="Italic"
                    Text="{Binding FullName}"/>
 
         <TextBlock x:Name="StatusTextBlock"
                    RelativePanel.Below="DonorNameTextBlock"
                    RelativePanel.AlignLeftWith="DonorNameTextBlock"
+                   Padding="15,0,0,0"
                    RelativePanel.AlignBottomWithPanel="True"
                    Text="{Binding Status}"/>
     </RelativePanel>

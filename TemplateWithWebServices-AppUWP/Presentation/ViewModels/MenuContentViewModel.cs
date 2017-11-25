@@ -78,7 +78,7 @@ namespace UwpClientApp.Presentation.ViewModels
 
             MenuItems.Add(new MenuItemViewModel
             {
-                DisplayName = "First Main - Default Empty Page",
+                DisplayName = "Home",
                 Icon = "\xE80F",
                 PageType = typeof(FirstMainPage)
             });

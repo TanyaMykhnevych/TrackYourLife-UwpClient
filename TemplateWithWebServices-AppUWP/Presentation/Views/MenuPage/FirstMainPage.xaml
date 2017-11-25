@@ -7,7 +7,29 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid HorizontalAlignment="Stretch" 
+          VerticalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
 
+        <StackPanel VerticalAlignment="Top"                    
+                    HorizontalAlignment="Stretch"
+                    Grid.Row="0">
+                <Image Stretch="Fill"
+                       Opacity="1"
+                       Source="/Assets/mainback.jpg" />
+        </StackPanel>
+
+        <StackPanel VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Grid.Row="1">
+            
+            <TextBlock Text="Track Your Life" 
+                       Foreground="Black"
+                       FontSize="28"
+                       FontWeight="Bold"/>
+        </StackPanel>
     </Grid>
 </Page>
