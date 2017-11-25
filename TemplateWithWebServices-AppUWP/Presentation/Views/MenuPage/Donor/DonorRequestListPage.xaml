@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:views="using:UwpClientApp.Presentation.Views"
     mc:Ignorable="d">
 
     <Page.Resources>
@@ -27,5 +28,11 @@
                                     ItemTemplate="{StaticResource DonorRequestListItemTemplate}"
                                     DetailsTemplate="{StaticResource DonorRequestDetailsTemplate}" 
                                     NoSelectionContentTemplate="{StaticResource DonorRequestNotSelectedTemplate}"/>
+
+        <controls:Loading x:Name="Preloader" 
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                          HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+            <views:PreloaderContent></views:PreloaderContent>
+        </controls:Loading>
     </Grid>
 </Page>

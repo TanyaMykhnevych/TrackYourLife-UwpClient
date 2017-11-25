@@ -28,6 +28,8 @@ namespace UwpClientApp.Presentation.Views.MenuPage.Donor
         {
             //DonorRequestsMasterDetails.NoSelectionContent = new object();
 
+            d(this.OneWayBind(ViewModel, vm => vm.IsBusy, v => v.Preloader.IsLoading));
+
             d(this.OneWayBind(ViewModel, vm => vm.DonorRequestList, v => v.DonorRequestsMasterDetails.ItemsSource));
             d(this.Bind(ViewModel, vm => vm.SelectedItem, v => v.DonorRequestsMasterDetails.SelectedItem));
             d(this.OneWayBind(ViewModel, vm => vm.MapListItemToDetails, v => v.DonorRequestsMasterDetails.MapDetails));

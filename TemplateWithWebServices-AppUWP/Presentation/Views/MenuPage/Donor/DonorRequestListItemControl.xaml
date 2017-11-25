@@ -23,12 +23,12 @@
         <TextBlock x:Name="DonorNameTextBlock"
                    RelativePanel.RightOf="DonorImage"
                    RelativePanel.AlignTopWithPanel="True"
-                   Text="Test Text"/>
+                   Text="{Binding FullName}"/>
 
         <TextBlock x:Name="StatusTextBlock"
                    RelativePanel.Below="DonorNameTextBlock"
                    RelativePanel.AlignLeftWith="DonorNameTextBlock"
                    RelativePanel.AlignBottomWithPanel="True"
-                   Text="Test Donor Name"/>
+                   Text="{Binding Status}"/>
     </RelativePanel>
 </UserControl>

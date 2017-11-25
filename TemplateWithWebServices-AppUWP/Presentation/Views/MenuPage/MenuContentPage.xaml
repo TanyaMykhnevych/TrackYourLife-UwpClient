@@ -4,6 +4,8 @@
     xmlns:local="using:UwpClientApp"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:views="using:UwpClientApp.Presentation.Views"
     mc:Ignorable="d">
 
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
@@ -49,11 +51,11 @@
             </SplitView.Content>
         </SplitView>
 
-        <ProgressRing x:Name="PreloaderProgressRing"
-                      HorizontalContentAlignment="Stretch"
-                      VerticalContentAlignment="Stretch"
-                      HorizontalAlignment="Stretch"
-                      VerticalAlignment="Stretch"/>
+        <controls:Loading x:Name="Preloader" 
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                          HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+            <views:PreloaderContent></views:PreloaderContent>
+        </controls:Loading>
     </Grid>
 
 </Page>

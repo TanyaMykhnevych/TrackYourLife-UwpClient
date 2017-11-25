@@ -5,59 +5,64 @@
     xmlns:local="using:UwpClientApp.Presentation.Views.MenuPage.Donor"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:views="using:UwpClientApp.Presentation.Views"
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <!--<Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>-->
-        
-        <TextBlock HorizontalAlignment="Center"
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel>
+            <TextBlock HorizontalAlignment="Center"
                    Padding="50"
                    FontSize="32"
                    Foreground="CadetBlue"> 
             Donor Request Details
-        </TextBlock>
+            </TextBlock>
 
-        <StackPanel Grid.Column="1" Orientation="Vertical">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock>Request Id:</TextBlock>
-                <TextBlock Text="{Binding Id}"></TextBlock>
-            </StackPanel>
+            <StackPanel Grid.Column="1" Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>Request Id:</TextBlock>
+                    <TextBlock Text="{Binding Details.Id}"></TextBlock>
+                </StackPanel>
 
-            <StackPanel Orientation="Horizontal">
-                <TextBlock>Message:</TextBlock>
-                <TextBlock Text="{Binding Message}"></TextBlock>
-            </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>Message:</TextBlock>
+                    <TextBlock Text="{Binding Details.Message}"></TextBlock>
+                </StackPanel>
 
-            <StackPanel Orientation="Horizontal">
-                <TextBlock>Donor Name:</TextBlock>
-                <TextBlock Text="{Binding DonorName}"></TextBlock>
-            </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>Donor Name:</TextBlock>
+                    <TextBlock Text="{Binding Details.DonorName}"></TextBlock>
+                </StackPanel>
 
-            <StackPanel Orientation="Horizontal">
-                <TextBlock>Organ Name:</TextBlock>
-                <TextBlock Text="{Binding OrganInfo.Name}"></TextBlock>
-            </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>Organ Name:</TextBlock>
+                    <TextBlock Text="{Binding Details.OrganInfo.Name}"></TextBlock>
+                </StackPanel>
 
-            <StackPanel Orientation="Horizontal">
-                <TextBlock>Patient Request Id:</TextBlock>
-                <TextBlock Text="{Binding PatientRequest.Id}"></TextBlock>
-            </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>Patient Request Id:</TextBlock>
+                    <TextBlock Text="{Binding Details.PatientRequest.Id}"></TextBlock>
+                </StackPanel>
 
-            <StackPanel Orientation="Horizontal">
-                <TextBlock>Patient Name:</TextBlock>
-                <TextBlock Text="{Binding PatientRequest.PatientName}"></TextBlock>
-            </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>Patient Name:</TextBlock>
+                    <TextBlock Text="{Binding Details.PatientRequest.PatientName}"></TextBlock>
+                </StackPanel>
 
-            <StackPanel Orientation="Horizontal">
-                <TextBlock>Medical Exams Count:</TextBlock>
-                <TextBlock Text="{Binding MedicalExamsCount}"></TextBlock>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>Medical Exams Count:</TextBlock>
+                    <TextBlock Text="{Binding Details.MedicalExamsCount}"></TextBlock>
+                </StackPanel>
             </StackPanel>
         </StackPanel>
-    </StackPanel>
+
+        <controls:Loading x:Name="Preloader" IsLoading="{Binding IsBusy}"
+                              HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                              HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+            <views:PreloaderContent></views:PreloaderContent>
+        </controls:Loading>
+
+    </Grid>
 </UserControl>

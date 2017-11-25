@@ -10,20 +10,13 @@ namespace UwpClientApp.Presentation.ViewModels
 {
     public abstract class ViewModelBase : ReactiveObject
     {
-        private readonly ObservableAsPropertyHelper<Visibility> _spinnerVisibility;
         private bool _isBusy;
         private ContentDialog _contentDialog;
 
         protected ViewModelBase()
         {
-            _spinnerVisibility = this.ObservableForProperty(x => x.IsBusy)
-                .Select(args => args.Value ? Visibility.Visible : Visibility.Collapsed)
-                .ToProperty(this, x => x.SpinnerVisibility, Visibility.Collapsed);
-        
             _contentDialog = new ContentDialog();
         }
-
-        public Visibility SpinnerVisibility => _spinnerVisibility.Value;
 
         public bool IsBusy
         {
@@ -39,6 +32,11 @@ namespace UwpClientApp.Presentation.ViewModels
 
             _contentDialog.CloseButtonText = "OK";
             await _contentDialog.ShowAsync();
+        }
+
+        protected void OnIsInProgressChanges(bool isBusy)
+        {
+            IsBusy = isBusy;
         }
     }
 }

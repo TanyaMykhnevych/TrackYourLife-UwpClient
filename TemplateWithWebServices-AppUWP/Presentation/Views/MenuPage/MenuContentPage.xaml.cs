@@ -21,7 +21,8 @@ namespace UwpClientApp.Presentation.Views.MenuPage
 
         private void CreateBindings(Action<IDisposable> d)
         {
-            d(this.OneWayBind(ViewModel, vm => vm.SpinnerVisibility, v => v.PreloaderProgressRing.Visibility));
+            d(this.OneWayBind(ViewModel, vm => vm.IsBusy, v => v.Preloader.IsLoading));
+
             d(this.OneWayBind(ViewModel, vm => vm.IsPaneOpened, v => v.HamburgerSplitView.IsPaneOpen));
             d(this.BindCommand(ViewModel, vm => vm.OpenClosePaneCommand, v => v.OpenClosePaneButton));
 

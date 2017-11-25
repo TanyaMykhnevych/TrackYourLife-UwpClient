@@ -26,7 +26,7 @@ namespace UwpClientApp.Presentation.Views.LoginPage
 
         private void CreateBindings(Action<IDisposable> d)
         {
-            d(this.OneWayBind(ViewModel, vm => vm.SpinnerVisibility, v => v.PreloaderProgressRing.Visibility));
+            d(this.OneWayBind(ViewModel, vm => vm.IsBusy, v => v.Preloader.IsLoading));
 
             d(this.Bind(ViewModel, vm => vm.LoginModel.Username, v => v.EmailTextBox.Text));
             d(this.Bind(ViewModel, vm => vm.LoginModel.Password, v => v.PasswordBox.Password));

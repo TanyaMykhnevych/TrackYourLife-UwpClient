@@ -6,9 +6,13 @@ namespace UwpClientApp.Presentation.Models.PatientRequests
     {
         public int Id { get; set; }
 
+        public string PatientFullName { get; set; }
+
         public string Message { get; set; }
         
         public PatientRequestStatuses Status { get; set; }
+
+        public PatientRequestPriority Priority { get; set; }
 
         public int? PatientInfoId { get; set; }
 

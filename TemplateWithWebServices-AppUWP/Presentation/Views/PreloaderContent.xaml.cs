@@ -12,16 +12,14 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using ReactiveUI;
-using UwpClientApp.Presentation.ViewModels.DonorRequest;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
-namespace UwpClientApp.Presentation.Views.MenuPage.Donor
+namespace UwpClientApp.Presentation.Views
 {
-    public sealed partial class DonorRequestDetailsControl : UserControl
+    public sealed partial class PreloaderContent : UserControl
     {
-        public DonorRequestDetailsControl()
+        public PreloaderContent()
         {
             this.InitializeComponent();
         }

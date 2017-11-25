@@ -193,6 +193,9 @@
     <Compile Include="Presentation\Views\MenuPage\Patient\PatientRequestListPage.xaml.cs">
       <DependentUpon>PatientRequestListPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Presentation\Views\PreloaderContent.xaml.cs">
+      <DependentUpon>PreloaderContent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -252,6 +255,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Presentation\Views\MenuPage\Patient\PatientRequestListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\PreloaderContent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
