@@ -28,13 +28,13 @@
                    VerticalAlignment="Center"/>
             <TextBox x:Name="EmailTextBox"  
                      Header="Email" 
-                     Width="500"
+                     Width="Auto"
                      Margin="0,10,0,10"
                      PlaceholderText="Enter your email"/>
 
             <PasswordBox x:Name="PasswordBox"  
                          Header="Password" 
-                         Width="500"
+                         Width="Auto"
                          Margin="0,10,0,10"
                          PlaceholderText="Enter your password"/>
 

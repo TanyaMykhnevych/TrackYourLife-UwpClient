@@ -10,26 +10,130 @@
     <Grid HorizontalAlignment="Stretch" 
           VerticalAlignment="Stretch">
         <Grid.RowDefinitions>
-            <RowDefinition Height="3*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
 
-        <StackPanel VerticalAlignment="Top"                    
+        <RelativePanel VerticalAlignment="Center"                    
                     HorizontalAlignment="Stretch"
+                    Grid.ColumnSpan="3"
                     Grid.Row="0">
                 <Image Stretch="Fill"
-                       Opacity="1"
                        Source="/Assets/mainback.jpg" />
-        </StackPanel>
+        </RelativePanel>
 
-        <StackPanel VerticalAlignment="Center"
-                    HorizontalAlignment="Center"
-                    Grid.Row="1">
-            
-            <TextBlock Text="Track Your Life" 
+        <StackPanel VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    Padding="28"
+                    Grid.Row="0">
+            <Image Stretch="Fill"
+                       Opacity="1"
+                       Width="80"
+                       Height="80"
+                       Source="/Assets/logo.png" />            
+            <TextBlock Text="Track" 
+                       Foreground="Black"
+                       FontSize="24"
+                       FontWeight="Bold"/>
+            <TextBlock Text="Your" 
+                       Foreground="Black"
+                       FontSize="28"
+                       FontWeight="Bold"/>
+            <TextBlock Text="Life" 
                        Foreground="Black"
                        FontSize="28"
                        FontWeight="Bold"/>
         </StackPanel>
+
+        <RelativePanel VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Padding="5"
+                    Margin="5"
+                    Grid.Row="1"
+                    Grid.Column="0">
+            <Image Stretch="Fill"
+                       Opacity="1"
+                       Width="100"
+                       Height="100"
+                       Source="/Assets/iconHeart.png" />
+        </RelativePanel>
+
+        <RelativePanel VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Padding="5"
+                    Margin="5"
+                    Grid.Row="1"
+                    Grid.Column="1">
+            <Image Stretch="Fill"
+                       Opacity="1"
+                       Width="100"
+                       Height="100"
+                       Source="/Assets/iconConditions.png" />
+        </RelativePanel>
+
+        <RelativePanel VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Padding="5"
+                    Margin="5"
+                    Grid.Row="1"
+                    Grid.Column="2">
+            <Image Stretch="Fill"
+                       Opacity="1"
+                       Width="100"
+                       Height="100"
+                       Source="/Assets/iconTrack.png" />
+        </RelativePanel>
+
+
+        <RelativePanel VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Padding="5"
+                    Margin="5"
+                    Grid.Row="2"
+                    Grid.Column="0">
+            <TextBlock Foreground="Black"
+                       FontSize="20"
+                       TextAlignment="Center"
+                       TextWrapping="Wrap"
+                       Padding="10">
+                <Bold>Work with all kinds of transplant organs</Bold>
+            </TextBlock>
+        </RelativePanel>
+
+        <RelativePanel VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Padding="5"
+                    Margin="5"
+                    Grid.Row="2"
+                    Grid.Column="1">
+            <TextBlock Foreground="Black"
+                       FontSize="20"
+                       TextAlignment="Center"
+                       TextWrapping="Wrap"
+                       Padding="10">
+                <Bold>Track the conditions of organs keeping</Bold>
+            </TextBlock>
+        </RelativePanel>
+
+        <RelativePanel VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Padding="5"
+                    Margin="5"
+                    Grid.Row="2"
+                    Grid.Column="2">
+            <TextBlock Foreground="Black"
+                       FontSize="20"
+                       TextAlignment="Center"
+                       TextWrapping="Wrap"
+                       Padding="10">
+                <Bold>Follow organs transportation any time</Bold>
+            </TextBlock>
+        </RelativePanel>
     </Grid>
 </Page>

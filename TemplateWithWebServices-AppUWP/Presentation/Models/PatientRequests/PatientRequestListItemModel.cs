@@ -6,7 +6,7 @@ namespace UwpClientApp.Presentation.Models.PatientRequests
     {
         public int Id { get; set; }
 
-        public string PatientFullName { get; set; }
+        public string FullName { get; set; }
 
         public string Message { get; set; }
         

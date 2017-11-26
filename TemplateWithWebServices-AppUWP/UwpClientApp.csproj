@@ -101,8 +101,10 @@
     <Compile Include="Business\Services\Implementations\AuthenticationService.cs" />
     <Compile Include="Business\Services\Implementations\DonorRequestService.cs" />
     <Compile Include="Business\Services\Implementations\NetworkService.cs" />
+    <Compile Include="Business\Services\Implementations\PatientRequestService.cs" />
     <Compile Include="Business\Services\Implementations\PreferencesService.cs" />
     <Compile Include="Business\Services\INetworkService.cs" />
+    <Compile Include="Business\Services\IPatientRequestService.cs" />
     <Compile Include="Business\Services\IPreferencesService.cs" />
     <Compile Include="Data\Api\ApiException.cs" />
     <Compile Include="Data\Api\ApiRouting.cs" />
@@ -110,6 +112,8 @@
     <Compile Include="Data\Api\APIs\IAuthRestApi.cs" />
     <Compile Include="Data\Api\APIs\Implementations\DonorRequestRestApi.cs" />
     <Compile Include="Data\Api\APIs\Implementations\AuthRestApi.cs" />
+    <Compile Include="Data\Api\APIs\Implementations\PatientRequestRestApi.cs" />
+    <Compile Include="Data\Api\APIs\IPatientRequestRestApi.cs" />
     <Compile Include="Data\Api\Rest\IRequestInterceptor.cs" />
     <Compile Include="Data\Api\Rest\PostFormUrlEncodedRequestBuilder.cs" />
     <Compile Include="Data\Api\Rest\Request.cs" />
@@ -187,8 +191,14 @@
     <Compile Include="Presentation\Views\MenuPage\MenuContentPage.xaml.cs">
       <DependentUpon>MenuContentPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Views\MenuPage\Patient\PatientRequestDetailsPage.xaml.cs">
-      <DependentUpon>PatientRequestDetailsPage.xaml</DependentUpon>
+    <Compile Include="Presentation\Views\MenuPage\Patient\PatientRequestDetailsControl.xaml.cs">
+      <DependentUpon>PatientRequestDetailsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\MenuPage\Patient\PatientRequestListItemControl.xaml.cs">
+      <DependentUpon>PatientRequestListItemControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\MenuPage\Patient\PatientRequestNotSelected.xaml.cs">
+      <DependentUpon>PatientRequestNotSelected.xaml</DependentUpon>
     </Compile>
     <Compile Include="Presentation\Views\MenuPage\Patient\PatientRequestListPage.xaml.cs">
       <DependentUpon>PatientRequestListPage.xaml</DependentUpon>
@@ -209,9 +219,13 @@
     <Content Include="Assets\background.png" />
     <Content Include="Assets\donor.png" />
     <Content Include="Assets\donorDetails.png" />
+    <Content Include="Assets\iconConditions.png" />
+    <Content Include="Assets\iconHeart.png" />
+    <Content Include="Assets\iconTrack.png" />
     <Content Include="Assets\logo.png" />
     <Content Include="Assets\mainback.jpg" />
     <Content Include="Assets\patient.ico" />
+    <Content Include="Assets\recipientDetails.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -254,9 +268,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Presentation\Views\MenuPage\Patient\PatientRequestDetailsPage.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Presentation\Views\MenuPage\Patient\PatientRequestDetailsControl.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\MenuPage\Patient\PatientRequestListItemControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\MenuPage\Patient\PatientRequestNotSelected.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Presentation\Views\MenuPage\Patient\PatientRequestListPage.xaml">
       <SubType>Designer</SubType>

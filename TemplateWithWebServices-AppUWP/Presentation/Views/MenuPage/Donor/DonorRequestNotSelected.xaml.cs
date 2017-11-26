@@ -17,9 +17,9 @@ using Windows.UI.Xaml.Navigation;
 
 namespace UwpClientApp.Presentation.Views.MenuPage.Donor
 {
-    public sealed partial class DonorRequestNotSelected : UserControl
+    public sealed partial class PatientRequestNotSelected : UserControl
     {
-        public DonorRequestNotSelected()
+        public PatientRequestNotSelected()
         {
             this.InitializeComponent();
         }

@@ -19,7 +19,7 @@
         </DataTemplate>
 
         <DataTemplate x:Key="DonorRequestNotSelectedTemplate">
-            <local:DonorRequestNotSelected></local:DonorRequestNotSelected>
+            <local:PatientRequestNotSelected></local:PatientRequestNotSelected>
         </DataTemplate>
     </Page.Resources>
 

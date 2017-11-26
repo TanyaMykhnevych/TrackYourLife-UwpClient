@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reactive.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Text;
 using System.Threading.Tasks;
 using Autofac;
 using ReactiveUI;
 using UwpClientApp.Business.Services;
 using UwpClientApp.Presentation.Models.DonorRequests;
+using Windows.UI.Xaml;
 
 namespace UwpClientApp.Presentation.ViewModels.DonorRequest
 {
@@ -18,12 +15,13 @@ namespace UwpClientApp.Presentation.ViewModels.DonorRequest
 
         private readonly DonorRequestListItemModel _listItem;
         private DonorRequestDetailsModel _detailsModel;
-
+        private Visibility _clinicVisibility;
+        
         public DonorRequestDetailsViewModel(object donorListItem)
         {
             _listItem = donorListItem as DonorRequestListItemModel;
             _donorRequestService = App.Container.Resolve<IDonorRequestService>();
-
+            this.ObservableForProperty(x => x._detailsModel.MedicalExamClinic).Subscribe(x => ClinicVisibility = x != null ? Visibility.Visible : Visibility.Collapsed);
             Init();
         }
 
@@ -31,6 +29,17 @@ namespace UwpClientApp.Presentation.ViewModels.DonorRequest
         {
             get => _detailsModel;
             set => this.RaiseAndSetIfChanged(ref _detailsModel, value);
+        }
+
+        public Boolean IsClinicVisible
+        {
+            get => _detailsModel?.MedicalExamClinic != null;
+        }
+
+        public Visibility ClinicVisibility
+        {
+            get { return _clinicVisibility; }
+            set { this.RaiseAndSetIfChanged(ref _clinicVisibility, value); }
         }
 
         private async void Init()

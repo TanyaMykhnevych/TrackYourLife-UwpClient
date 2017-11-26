@@ -11,7 +11,8 @@ namespace UwpClientApp.Presentation.Views.MenuPage.Patient
     public sealed partial class PatientRequestListPage : IViewFor<PatientRequestListViewModel>
     {
         public static readonly DependencyProperty ViewModelProperty =
-            DependencyProperty.Register("ViewModel", typeof(PatientRequestListViewModel), typeof(PatientRequestListPage), new PropertyMetadata(default(PatientRequestListViewModel)));
+            DependencyProperty.Register("ViewModel", typeof(PatientRequestListViewModel),
+                typeof(PatientRequestListPage), new PropertyMetadata(default(PatientRequestListViewModel)));
 
         public PatientRequestListPage()
         {
@@ -23,7 +24,12 @@ namespace UwpClientApp.Presentation.Views.MenuPage.Patient
 
         private void CreateBindings(Action<IDisposable> d)
         {
+            d(this.OneWayBind(ViewModel, vm => vm.IsBusy, v => v.Preloader.IsLoading));
 
+            d(this.OneWayBind(ViewModel, vm => vm.PatientRequestList, v => v.PatientRequestsMasterDetails.ItemsSource));
+            d(this.Bind(ViewModel, vm => vm.SelectedItem, v => v.PatientRequestsMasterDetails.SelectedItem));
+            d(this.OneWayBind(ViewModel, vm => vm.MapListItemToDetails, v => v.PatientRequestsMasterDetails.MapDetails));
+            d(this.Bind(ViewModel, vm => vm.CurrentViewState, v => v.PatientRequestsMasterDetails.ViewState));
         }
 
         object IViewFor.ViewModel

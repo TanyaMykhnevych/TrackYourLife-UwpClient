@@ -2,12 +2,37 @@
     x:Class="UwpClientApp.Presentation.Views.MenuPage.Patient.PatientRequestListPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:UwpClientApp.Presentation.Views.MenuPage.Patient"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="using:UwpClientApp.Presentation.Views.MenuPage.Patient"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:views="using:UwpClientApp.Presentation.Views"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <DataTemplate x:Key="PatientRequestDetailsTemplate">
+            <local:PatientRequestDetailsControl></local:PatientRequestDetailsControl>
+        </DataTemplate>
 
+        <DataTemplate x:Key="PatientRequestListItemTemplate">
+            <local:PatientRequestListItemControl></local:PatientRequestListItemControl>
+        </DataTemplate>
+
+        <DataTemplate x:Key="PatientRequestNotSelectedTemplate">
+            <local:PatientRequestNotSelected></local:PatientRequestNotSelected>
+        </DataTemplate>
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <controls:MasterDetailsView x:Name="PatientRequestsMasterDetails" 
+                                    ItemTemplate="{StaticResource PatientRequestListItemTemplate}"
+                                    DetailsTemplate="{StaticResource PatientRequestDetailsTemplate}" 
+                                    NoSelectionContentTemplate="{StaticResource PatientRequestNotSelectedTemplate}"/>
+
+        <controls:Loading x:Name="Preloader" 
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                          HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+            <views:PreloaderContent></views:PreloaderContent>
+        </controls:Loading>
     </Grid>
 </Page>

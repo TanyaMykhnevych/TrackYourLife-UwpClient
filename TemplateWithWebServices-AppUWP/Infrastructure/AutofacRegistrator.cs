@@ -36,12 +36,14 @@ namespace UwpClientApp.Infrastructure
             builder.RegisterType<AuthenticationService>().As<IAuthenticationService>();
             builder.RegisterType<NetworkService>().As<INetworkService>();
             builder.RegisterType<DonorRequestService>().As<IDonorRequestService>();
+            builder.RegisterType<PatientRequestService>().As<IPatientRequestService>();
         }
 
         private static void RegisterApis(ContainerBuilder builder)
         {
             builder.RegisterType<AuthRestApi>().As<IAuthRestApi>();
             builder.RegisterType<DonorRequestRestApi>().As<IDonorRequestRestApi>();
+            builder.RegisterType<PatientRequestRestApi>().As<IPatientRequestRestApi>();
         }
     }
 }

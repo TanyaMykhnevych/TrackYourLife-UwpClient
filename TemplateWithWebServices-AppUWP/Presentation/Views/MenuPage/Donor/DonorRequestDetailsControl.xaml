@@ -37,7 +37,7 @@
                         CornerRadius="20"
                         BorderThickness="1"
                         BorderBrush="Aquamarine">
-                
+
                 <!--<StackPanel Orientation="Horizontal">
                     <TextBlock>Request Id:</TextBlock>
                     <TextBlock Text="{Binding Details.Id}"></TextBlock>
@@ -70,6 +70,15 @@
                                FontStyle="Italic"></TextBlock>
                 </StackPanel>
 
+                <StackPanel Orientation="Horizontal" Padding="10">
+                    <TextBlock FontSize="18"
+                               FontWeight="Bold"
+                               Padding="0,0,5,0">Status:</TextBlock>
+                    <TextBlock Text="{Binding Details.Status}"
+                               FontSize="18"
+                               FontStyle="Italic"></TextBlock>
+                </StackPanel>
+                
                 <!--<StackPanel Orientation="Horizontal">
                     <TextBlock>Patient Request Id:</TextBlock>
                     <TextBlock Text="{Binding Details.PatientRequest.Id}"></TextBlock>
@@ -93,7 +102,73 @@
                                FontStyle="Italic"></TextBlock>
                 </StackPanel>
             </StackPanel>
+
+            <ScrollViewer Height="100"
+                  HorizontalAlignment="Stretch"
+                  VerticalAlignment="Stretch"
+                  HorizontalScrollBarVisibility="Hidden" 
+                  VerticalScrollBarVisibility="Hidden">
+
+                <StackPanel x:Name="Clinic"
+                        Grid.Column="1"
+                        Orientation="Vertical"
+                        Padding="20"
+                        Margin="20"
+                        Background="AliceBlue"
+                        CornerRadius="20"
+                        BorderThickness="1"
+                        BorderBrush="Aquamarine"
+                        Visibility="{Binding ClinicVisibility}">
+
+                    <StackPanel Orientation="Horizontal" Padding="10">
+                            <TextBlock FontSize="18"
+                                       FontWeight="Bold"
+                                       Padding="0,0,5,0">Clinic:</TextBlock>
+                        <TextBlock Text="{Binding Details.MedicalExamClinic.Name}"
+                                       FontSize="18"
+                                       FontStyle="Italic"></TextBlock>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Padding="10">
+                        <TextBlock FontSize="18"
+                                   FontWeight="Bold"
+                                   Padding="0,0,5,0">Clinic Contact Phone:</TextBlock>
+                        <TextBlock Text="{Binding Details.MedicalExamClinic.ContactPhone}"
+                                   FontSize="18"
+                                   FontStyle="Italic"></TextBlock>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Padding="10">
+                        <TextBlock FontSize="18"
+                                   FontWeight="Bold"
+                                   Padding="0,0,5,0">Clinic Address:</TextBlock>
+                        <TextBlock Text="{Binding Details.MedicalExamClinic.AddressLine1}"
+                                   FontSize="18"
+                                   FontStyle="Italic"></TextBlock>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Padding="10">
+                        <TextBlock FontSize="18"
+                                   FontWeight="Bold"
+                                   Padding="0,0,5,0">Clinic Country:</TextBlock>
+                        <TextBlock Text="{Binding Details.MedicalExamClinic.Country}"
+                                   FontSize="18"
+                                   FontStyle="Italic"></TextBlock>
+                        </StackPanel>
+                
+                    <StackPanel Orientation="Horizontal" Padding="10">
+                        <TextBlock FontSize="18"
+                                   FontWeight="Bold"
+                                   Padding="0,0,5,0">Clinic City:</TextBlock>
+                        <TextBlock Text="{Binding Details.MedicalExamClinic.City}"
+                                   FontSize="18"
+                                   FontStyle="Italic"></TextBlock>
+                    </StackPanel>
+                
+                </StackPanel>
+            </ScrollViewer>
         </StackPanel>
+            
 
         <controls:Loading x:Name="Preloader" IsLoading="{Binding IsBusy}"
                               HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
