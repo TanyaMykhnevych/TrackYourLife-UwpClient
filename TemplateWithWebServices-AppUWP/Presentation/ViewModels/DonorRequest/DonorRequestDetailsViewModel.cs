@@ -16,12 +16,13 @@ namespace UwpClientApp.Presentation.ViewModels.DonorRequest
         private readonly DonorRequestListItemModel _listItem;
         private DonorRequestDetailsModel _detailsModel;
         private Visibility _clinicVisibility;
-        
+        private Visibility _patientVisibility;
+
         public DonorRequestDetailsViewModel(object donorListItem)
         {
             _listItem = donorListItem as DonorRequestListItemModel;
             _donorRequestService = App.Container.Resolve<IDonorRequestService>();
-            this.ObservableForProperty(x => x._detailsModel.MedicalExamClinic).Subscribe(x => ClinicVisibility = x != null ? Visibility.Visible : Visibility.Collapsed);
+
             Init();
         }
 
@@ -42,9 +43,18 @@ namespace UwpClientApp.Presentation.ViewModels.DonorRequest
             set { this.RaiseAndSetIfChanged(ref _clinicVisibility, value); }
         }
 
+        public Visibility PatientVisibility
+        {
+            get { return _patientVisibility; }
+            set { this.RaiseAndSetIfChanged(ref _patientVisibility, value); }
+        }
+
         private async void Init()
         {
             Details = await LoadDonorRequestDetailsAsync();
+
+            ClinicVisibility = _detailsModel.MedicalExamClinic != null ? Visibility.Visible : Visibility.Collapsed;
+            PatientVisibility = _detailsModel?.PatientRequest != null ? Visibility.Visible : Visibility.Collapsed;
         }
 
         private async Task<DonorRequestDetailsModel> LoadDonorRequestDetailsAsync()

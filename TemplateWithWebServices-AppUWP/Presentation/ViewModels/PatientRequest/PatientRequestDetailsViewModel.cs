@@ -1,9 +1,11 @@
-﻿using Autofac;
-using ReactiveUI;
+﻿using System;
+using System.Reactive.Linq;
 using System.Threading.Tasks;
+using Autofac;
+using ReactiveUI;
 using UwpClientApp.Business.Services;
-using UwpClientApp.Presentation.Models.PatientRequests;
 using Windows.UI.Xaml;
+using UwpClientApp.Presentation.Models.PatientRequests;
 
 namespace UwpClientApp.Presentation.ViewModels.PatientRequest
 {
@@ -13,12 +15,13 @@ namespace UwpClientApp.Presentation.ViewModels.PatientRequest
 
         private readonly PatientRequestListItemModel _listItem;
         private PatientRequestDetailsModel _detailsModel;
-        private Visibility _clinicVisibility;
+        private Visibility _donorVisibility;
 
         public PatientRequestDetailsViewModel(object patientListItem)
         {
             _listItem = patientListItem as PatientRequestListItemModel;
             _patientRequestService = App.Container.Resolve<IPatientRequestService>();
+
             Init();
         }
 
@@ -27,17 +30,18 @@ namespace UwpClientApp.Presentation.ViewModels.PatientRequest
             get => _detailsModel;
             set => this.RaiseAndSetIfChanged(ref _detailsModel, value);
         }
-        
 
-        public Visibility ClinicVisibility
+        public Visibility DonorVisibility
         {
-            get { return _clinicVisibility; }
-            set { this.RaiseAndSetIfChanged(ref _clinicVisibility, value); }
+            get { return _donorVisibility; }
+            set { this.RaiseAndSetIfChanged(ref _donorVisibility, value); }
         }
 
         private async void Init()
         {
             Details = await LoadPatientRequestDetailsAsync();
+
+            DonorVisibility = _detailsModel?.DonorRequest != null ? Visibility.Visible : Visibility.Collapsed;
         }
 
         private async Task<PatientRequestDetailsModel> LoadPatientRequestDetailsAsync()
