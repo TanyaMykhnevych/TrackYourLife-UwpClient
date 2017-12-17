@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using UwpClientApp.Data.Api.APIs;
 using UwpClientApp.Presentation.Models;
 using UwpClientApp.Presentation.Models.PatientRequests;
@@ -22,6 +23,11 @@ namespace UwpClientApp.Business.Services.Implementations
         public async Task<ResponseWrapper<PatientRequestListModel>> GetPatientRequestListAsync()
         {
             return await _requestRestApi.GetPatientRequestListAsync();
+        }
+
+        public async Task<ResponseWrapper<IList<OrganStateSnapshotModel>>> GetOrganStateSnapshotListAsync(int patientRequestId)
+        {
+            return await _requestRestApi.GetOrganStateSnapshotListAsync(patientRequestId);
         }
     }
 }

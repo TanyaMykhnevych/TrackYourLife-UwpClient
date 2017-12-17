@@ -18,18 +18,19 @@
             <RowDefinition Height="3*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <RelativePanel Grid.Row="0"
+        <StackPanel Grid.Row="0"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center">
             <TextBlock HorizontalAlignment="Center"
                    Padding="30, 100, 30, 0"
+                       Margin="50"
                    FontSize="32"
                    Foreground="CadetBlue"> 
                     Recipient Request Details
             </TextBlock>
-        </RelativePanel>
+        </StackPanel>
 
-        <RelativePanel Grid.Row="1"
+        <StackPanel Grid.Row="1"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center">
             <controls:ImageEx x:Name="PatientImage"
@@ -37,7 +38,7 @@
                 Stretch="Uniform"
                 Source="Assets/recipientDetails.png">
             </controls:ImageEx>
-        </RelativePanel>
+        </StackPanel>
 
         <ScrollViewer HorizontalAlignment="Stretch"
                       VerticalAlignment="Stretch"
@@ -231,6 +232,69 @@
                                    FontStyle="Italic"></TextBlock>
                     </StackPanel>
                 </StackPanel>
+
+                <Button Command="{Binding LoadOrganStateSnapshotsCommand}" 
+                        Visibility="{Binding OrganStatesButtonVisibility}"
+                        HorizontalAlignment="Center"
+                        Background="LightGreen"
+                        BorderBrush="DarkGreen"
+                        Margin="20"
+                        Padding="10"
+                        FontSize="16">
+                    Get Organ Snapshots
+                </Button>
+                <TextBlock HorizontalAlignment="Center"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           Foreground="Green"
+                           Margin="10">
+                    Organ Conditions Data
+                </TextBlock>
+                <ListView ItemsSource="{Binding OrganStates}" 
+                          SelectionMode="Single"
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                          Visibility="{Binding OrganStatesVisibility}">
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Margin="10"                                        
+                                        Padding="10"
+                                        Background="LightYellow"
+                                        CornerRadius="10"
+                                        BorderThickness="1"
+                                        BorderBrush="DarkGreen">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontSize="16"
+                                   FontWeight="Bold"
+                                   Padding="0,0,5,0">Temperature:</TextBlock>
+                                    <TextBlock FontSize="16"
+                                   Padding="0,0,5,0" Text="{Binding Temperature}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontSize="16"
+                                       FontWeight="Bold"
+                                       Padding="0,0,5,0">Humidity:</TextBlock>
+                                    <TextBlock FontSize="16"
+                                       Padding="0,0,5,0"
+                                       Text="{Binding Humidity}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontSize="16"
+                                       FontWeight="Bold"
+                                       Padding="0,0,5,0">Longitude:</TextBlock>
+                                    <TextBlock Text="{Binding Longitude}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontSize="16"
+                                       FontWeight="Bold"
+                                       Padding="0,0,5,0">Altitude:</TextBlock>
+                                    <TextBlock Text="{Binding Altitude}"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </StackPanel>
         </ScrollViewer>
 

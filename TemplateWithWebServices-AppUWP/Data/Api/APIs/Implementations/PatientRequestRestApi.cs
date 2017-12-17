@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using UwpClientApp.Data.Api.Rest;
 using UwpClientApp.Presentation.Models;
@@ -25,6 +26,13 @@ namespace UwpClientApp.Data.Api.APIs.Implementations
         {
              var response = await Url("patientRequest/getPatientRequestList")
                     .GetAsync<ResponseWrapper<PatientRequestListModel>>();
+            return response;
+        }
+
+        public async Task<ResponseWrapper<IList<OrganStateSnapshotModel>>> GetOrganStateSnapshotListAsync(int patientRequestId)
+        {
+            var response = await Url($"organDelivery/getOrganDeliverySnapshot/{patientRequestId}")
+                   .GetAsync<ResponseWrapper<IList<OrganStateSnapshotModel>>>();
             return response;
         }
     }
