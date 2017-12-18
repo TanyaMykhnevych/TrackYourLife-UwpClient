@@ -25,7 +25,14 @@ namespace UwpClientApp.Business.Services.Implementations
             string errorMessage;
             try
             {
-                await RetrieveTokenAsync(username, password, rememberMe);
+                GetTokenModel model = new GetTokenModel()
+                {
+                    Username = username,
+                    Password = password,
+                    RememberMe = rememberMe
+                };
+
+                await RetrieveTokenAsync(model);
                 await UpdateUserInfoAsync();
                 LastUpdateIpTime = DateTime.Now;
                 return true;
@@ -60,9 +67,9 @@ namespace UwpClientApp.Business.Services.Implementations
             _preferencesService.Clear();
         }
 
-        private async Task<TokenModel> RetrieveTokenAsync(string username, string password, bool rememberMe)
+        private async Task<TokenModel> RetrieveTokenAsync(GetTokenModel model)
         {
-            var tokenInfo = await _authApi.RetrieveTokenAsync(username, password, rememberMe);
+            var tokenInfo = await _authApi.RetrieveTokenAsync(model);
             _preferencesService.TokenInfo = tokenInfo;
             return tokenInfo;
         }

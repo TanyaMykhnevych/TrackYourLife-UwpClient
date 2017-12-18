@@ -12,5 +12,7 @@ namespace UwpClientApp.Data.Api.APIs
         Task<ResponseWrapper<PatientRequestDetailsModel>> GetPatientRequestDetailsAsync(int patientRequestId);
 
         Task<ResponseWrapper<IList<OrganStateSnapshotModel>>> GetOrganStateSnapshotListAsync(int patientRequestId);
+
+        Task<ResponseWrapper> UpdatePatientRequestAsync(EditPatientRequestModel model);
     }
 }

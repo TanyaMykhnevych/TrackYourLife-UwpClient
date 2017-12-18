@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using UwpClientApp.Data.Api.Rest;
 using UwpClientApp.Presentation.Models;
@@ -13,13 +12,13 @@ namespace UwpClientApp.Data.Api.APIs.Implementations
         
         public AuthRestApi() : base(new Uri(BaseApiAddress)) { }
 
-        public Task<TokenModel> RetrieveTokenAsync(string username, string password, bool rememberMe)
+        public Task<TokenModel> RetrieveTokenAsync(GetTokenModel model)
         {
             return Url("token")
                 .FormUrlEncoded()
-                .Param(nameof(username), username)
-                .Param(nameof(password), password)
-                .Param(nameof(rememberMe), rememberMe.ToString())
+                .Param(nameof(model.Username), model.Username)
+                .Param(nameof(model.Password), model.Password)
+                .Param(nameof(model.RememberMe), model.RememberMe.ToString())
                 .PostAsync<TokenModel>();
         }
 

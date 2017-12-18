@@ -29,5 +29,10 @@ namespace UwpClientApp.Business.Services.Implementations
         {
             return await _requestRestApi.GetOrganStateSnapshotListAsync(patientRequestId);
         }
+
+        public Task<ResponseWrapper> UpdatePatientRequestAsync(EditPatientRequestModel model)
+        {
+            return _requestRestApi.UpdatePatientRequestAsync(model);
+        }
     }
 }

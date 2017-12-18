@@ -46,7 +46,91 @@
                       HorizontalScrollBarVisibility="Hidden" 
                       VerticalScrollBarVisibility="Hidden">
             <StackPanel>
-                <StackPanel Orientation="Vertical"
+
+                <Button x:Name="CancelButton"
+                        Command="{Binding CancelRequestCommentCommand}"
+                        Visibility="{Binding EditSectionVisibility}"
+                        Background="LightCoral"
+                        BorderBrush="DarkGreen"
+                        HorizontalAlignment="Right"
+                        Margin="20"
+                        Padding="10"
+                        FontSize="16">
+                    Cancel
+                </Button>
+                <Button x:Name="EditButton"
+                        Command="{Binding EditRequestCommentCommand}"
+                        Visibility="{Binding ViewSectionVisibility}"
+                        Background="LightBlue"
+                        BorderBrush="DarkGreen"
+                        HorizontalAlignment="Right"
+                        Margin="20"
+                        Padding="10"
+                        FontSize="16">
+                    Edit
+                </Button>
+                <Button x:Name="SaveButton" 
+                        Command="{Binding SaveRequestCommentCommand}"
+                        Visibility="{Binding EditSectionVisibility}"
+                        Background="LightGreen"
+                        BorderBrush="DarkGreen"
+                        HorizontalAlignment="Right"
+                        Margin="20"
+                        Padding="10"
+                        FontSize="16">
+                    Save
+                </Button>
+
+                <StackPanel x:Name="EditSection"
+                            Visibility="{Binding EditSectionVisibility}"
+                            Orientation="Vertical"
+                            Padding="20"
+                            Margin="20"
+                            Background="AliceBlue"
+                            CornerRadius="20"
+                            BorderThickness="1"
+                            BorderBrush="Aquamarine">
+
+                    <StackPanel Orientation="Horizontal" Padding="10">
+                        <TextBlock FontSize="18"
+                                   FontWeight="Bold"
+                                   Width="200px"
+                                   Padding="0,0,5,0">Phone Number:</TextBlock>
+                        <TextBox Text="{Binding EditableModel.PatientPhoneNumber, Mode=TwoWay}"
+                                   FontSize="18"
+                                   Width="200"
+                                   FontStyle="Italic"
+                                   Height="40px"/>
+                    </StackPanel>
+
+
+                    <StackPanel Orientation="Horizontal" Padding="10">
+                        <TextBlock FontSize="18"
+                                   FontWeight="Bold"
+                                   Padding="0,0,5,0">Address Line 1:</TextBlock>
+                        <TextBox Text="{Binding EditableModel.PatientAddressLine1, Mode=TwoWay}"
+                                   FontSize="18"
+                                   Width="200"
+                                   FontStyle="Italic"
+                                   Height="40px"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Padding="10">
+                        <TextBlock FontSize="18"
+                                   FontWeight="Bold"
+                                   Width="200px"
+                                   Padding="0,0,5,0">Message:</TextBlock>
+                        <TextBox Text="{Binding EditableModel.Message, Mode=TwoWay}"
+                                   FontSize="18"
+                                   Width="200"
+                                   FontStyle="Italic"
+                                   Height="40px"/>
+                    </StackPanel>
+
+                </StackPanel>
+                <StackPanel x:Name="ViewSection"
+                            Visibility="{Binding ViewSectionVisibility}"
+                            Orientation="Vertical"
                             Padding="20"
                             Margin="20"
                             Background="AliceBlue"
@@ -131,7 +215,8 @@
                                    Padding="0,0,5,0">Message:</TextBlock>
                         <TextBlock Text="{Binding Details.Message}"
                                    FontSize="18"
-                                   FontStyle="Italic"></TextBlock>
+                                   FontStyle="Italic"
+                                   Height="40px"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Padding="10">
@@ -231,6 +316,7 @@
                                    FontSize="18"
                                    FontStyle="Italic"></TextBlock>
                     </StackPanel>
+
                 </StackPanel>
 
                 <Button Command="{Binding LoadOrganStateSnapshotsCommand}" 
@@ -247,7 +333,8 @@
                            FontSize="24"
                            FontWeight="Bold"
                            Foreground="Green"
-                           Margin="10">
+                           Margin="10"
+                           Visibility="{Binding OrganStatesVisibility}">
                     Organ Conditions Data
                 </TextBlock>
                 <ListView ItemsSource="{Binding OrganStates}" 

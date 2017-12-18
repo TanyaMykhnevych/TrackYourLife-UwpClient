@@ -35,5 +35,16 @@ namespace UwpClientApp.Data.Api.APIs.Implementations
                    .GetAsync<ResponseWrapper<IList<OrganStateSnapshotModel>>>();
             return response;
         }
+
+        public Task<ResponseWrapper> UpdatePatientRequestAsync(EditPatientRequestModel model)
+        {
+            return Url("patientRequest/updatePatientRequest")
+                .FormUrlEncoded()
+                .Param(nameof(model.PatientRequestId), model.PatientRequestId.ToString())
+                .Param(nameof(model.Message), model.Message)
+                .Param(nameof(model.PatientPhoneNumber), model.PatientPhoneNumber)
+                .Param(nameof(model.PatientAddressLine1), model.PatientAddressLine1)
+                .PostAsync<ResponseWrapper>();
+        }
     }
 }
